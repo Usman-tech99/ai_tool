@@ -9,6 +9,11 @@ import Contact from './components/Contact'
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState('home')
+
+  const handleNavigate = (page) => {
+    setCurrentPage(page)
+    window.scrollTo(0, 0)
+  }
   return (
     <div className="min-h-screen w-full bg-[#0a0a0f] text-white overflow-x-hidden">
 
@@ -33,15 +38,15 @@ const App = () => {
 
       {/* ── Content Management ── */}
       {currentPage === 'privacy' && (
-        <Privacy onBack={() => setCurrentPage('home')} />
+        <Privacy onBack={() => handleNavigate('home')} />
       )}
 
       {currentPage === 'terms' && (
-        <Terms onBack={() => setCurrentPage('home')} />
+        <Terms onBack={() => handleNavigate('home')} />
       )}
 
       {currentPage === 'contact' && (
-        <Contact onBack={() => setCurrentPage('home')} />
+        <Contact onBack={() => handleNavigate('home')} />
       )}
 
       {currentPage === 'home' && (
@@ -98,9 +103,9 @@ const App = () => {
         <div className="max-w-6xl mx-auto w-full px-3 sm:px-5 lg:px-8 py-6 sm:py-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs sm:text-sm text-gray-600">
           <p>© {new Date().getFullYear()} cyberaipulse. All rights reserved.</p>
           <nav id="privacy" className="flex flex-wrap justify-center gap-4 sm:gap-6">
-            <button onClick={() => setCurrentPage('privacy')} className="hover:text-gray-300 transition-colors">Privacy Policy</button>
-            <button onClick={() => setCurrentPage('terms')} className="hover:text-gray-300 transition-colors">Terms of Use</button>
-            <button onClick={() => setCurrentPage('contact')} className="hover:text-gray-300 transition-colors">Contact</button>
+            <button onClick={() => handleNavigate('privacy')} className="text-gray-400 hover:text-cyan-300 transition-colors cursor-pointer">Privacy Policy</button>
+            <button onClick={() => handleNavigate('terms')} className="text-gray-400 hover:text-cyan-300 transition-colors cursor-pointer">Terms of Use</button>
+            <button onClick={() => handleNavigate('contact')} className="text-gray-400 hover:text-cyan-300 transition-colors cursor-pointer">Contact</button>
           </nav>
         </div>
       </footer>
