@@ -1,9 +1,14 @@
+import { useState } from 'react'
 import PasswordGenerator from './components/PasswordGenerator'
 import PasswordChecker from './components/PasswordChecker'
 import SeoContent from './components/SeoContent'
 import Blog from './components/Blog'
+import Privacy from './components/Privacy'
+import Terms from './components/Terms'
+import Contact from './components/Contact'
 
 const App = () => {
+  const [currentPage, setCurrentPage] = useState('home')
   return (
     <div className="min-h-screen w-full bg-[#0a0a0f] text-white overflow-x-hidden">
 
@@ -26,59 +31,76 @@ const App = () => {
         </div>
       </header>
 
-      {/* ── Hero ── */}
-      <section className="max-w-6xl mx-auto w-full px-3 sm:px-5 lg:px-8 pt-8 sm:pt-12 lg:pt-16 pb-6 sm:pb-8 text-center">
-        <div className="inline-flex flex-wrap justify-center items-center gap-2 bg-cyan-600/10 border border-cyan-500/20 rounded-full px-3 sm:px-4 py-1.5 text-[10px] sm:text-xs text-cyan-300 font-mono uppercase tracking-widest mb-4 sm:mb-6">
-          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse flex-shrink-0" />
-          Cryptographically Secure · 100% Client-Side · AI Crack Analysis
-        </div>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-3 sm:mb-4 px-2">
-          Generate & Test{' '}
-          <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-            Secure Passwords
-          </span>
-        </h1>
-        <p className="text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto px-2">
-          Create uncrackable passwords and instantly see how long it would take
-          a brute-force attacker — or an <span className="text-cyan-300 font-medium">AI neural network</span> — to break yours.
-        </p>
-      </section>
+      {/* ── Content Management ── */}
+      {currentPage === 'privacy' && (
+        <Privacy onBack={() => setCurrentPage('home')} />
+      )}
 
-      {/* ── Main Grid ── */}
-      <main id="generator" className="max-w-6xl mx-auto w-full px-3 sm:px-5 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 items-start">
+      {currentPage === 'terms' && (
+        <Terms onBack={() => setCurrentPage('home')} />
+      )}
 
-          {/* Password Generator */}
-          <div id="generator" className="min-w-0">
-            <PasswordGenerator />
+      {currentPage === 'contact' && (
+        <Contact onBack={() => setCurrentPage('home')} />
+      )}
+
+      {currentPage === 'home' && (
+        <>
+          {/* ── Hero ── */}
+          <section className="max-w-6xl mx-auto w-full px-3 sm:px-5 lg:px-8 pt-8 sm:pt-12 lg:pt-16 pb-6 sm:pb-8 text-center">
+            <div className="inline-flex flex-wrap justify-center items-center gap-2 bg-cyan-600/10 border border-cyan-500/20 rounded-full px-3 sm:px-4 py-1.5 text-[10px] sm:text-xs text-cyan-300 font-mono uppercase tracking-widest mb-4 sm:mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse flex-shrink-0" />
+              Cryptographically Secure · 100% Client-Side · AI Crack Analysis
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-3 sm:mb-4 px-2">
+              Generate & Test{' '}
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                Secure Passwords
+              </span>
+            </h1>
+            <p className="text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto px-2">
+              Create uncrackable passwords and instantly see how long it would take
+              a brute-force attacker — or an <span className="text-cyan-300 font-medium">AI neural network</span> — to break yours.
+            </p>
+          </section>
+
+          {/* ── Main Grid ── */}
+          <main id="generator" className="max-w-6xl mx-auto w-full px-3 sm:px-5 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 items-start">
+
+              {/* Password Generator */}
+              <div id="generator" className="min-w-0">
+                <PasswordGenerator />
+              </div>
+
+              {/* Password Checker */}
+              <div id="checker" className="min-w-0">
+                <PasswordChecker />
+              </div>
+
+            </div>
+          </main>
+
+          {/* ── SEO Content ── */}
+          <div id="learn">
+            <SeoContent />
           </div>
 
-          {/* Password Checker */}
-          <div id="checker" className="min-w-0">
-            <PasswordChecker />
+          {/* ── Blog ── */}
+          <div id="blog" className="border-t border-gray-800/60">
+            <Blog />
           </div>
-
-        </div>
-      </main>
-
-      {/* ── SEO Content ── */}
-      <div id="learn">
-        <SeoContent />
-      </div>
-
-      {/* ── Blog ── */}
-      <div id="blog" className="border-t border-gray-800/60">
-        <Blog />
-      </div>
+        </>
+      )}
 
       {/* ── Footer ── */}
       <footer className="border-t border-gray-800/60 bg-[#080810]">
         <div className="max-w-6xl mx-auto w-full px-3 sm:px-5 lg:px-8 py-6 sm:py-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs sm:text-sm text-gray-600">
           <p>© {new Date().getFullYear()} cyberaipulse. All rights reserved.</p>
           <nav id="privacy" className="flex flex-wrap justify-center gap-4 sm:gap-6">
-            <a href="#" className="hover:text-gray-300 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-gray-300 transition-colors">Terms of Use</a>
-            <a href="#" className="hover:text-gray-300 transition-colors">Contact</a>
+            <button onClick={() => setCurrentPage('privacy')} className="hover:text-gray-300 transition-colors">Privacy Policy</button>
+            <button onClick={() => setCurrentPage('terms')} className="hover:text-gray-300 transition-colors">Terms of Use</button>
+            <button onClick={() => setCurrentPage('contact')} className="hover:text-gray-300 transition-colors">Contact</button>
           </nav>
         </div>
       </footer>
