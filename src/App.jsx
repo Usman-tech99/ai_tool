@@ -1,6 +1,7 @@
 import PasswordGenerator from './components/PasswordGenerator'
 import PasswordChecker from './components/PasswordChecker'
 import SeoContent from './components/SeoContent'
+import Blog from './components/Blog'
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
             <a href="#generator" className="hover:text-violet-300 transition-colors">Generator</a>
             <a href="#checker"   className="hover:text-violet-300 transition-colors">Checker</a>
             <a href="#learn"     className="hover:text-violet-300 transition-colors">Learn</a>
+            <a href="#blog"      className="hover:text-violet-300 transition-colors">Blog</a>
           </nav>
         </div>
       </header>
@@ -62,6 +64,11 @@ const App = () => {
       {/* ── SEO Content ── */}
       <div id="learn">
         <SeoContent />
+      </div>
+
+      {/* ── Blog ── */}
+      <div id="blog" className="border-t border-gray-800/60">
+        <Blog />
       </div>
 
       {/* ── Footer ── */}
