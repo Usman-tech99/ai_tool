@@ -20,7 +20,7 @@ class ErrorBoundary extends Component {
             <p className="text-gray-500 text-sm font-mono mb-6 break-all">{this.state.message}</p>
             <button
               onClick={() => this.setState({ hasError: false, message: '' })}
-              className="px-6 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold transition-colors"
+              className="px-6 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-semibold transition-colors"
             >
               Try Again
             </button>

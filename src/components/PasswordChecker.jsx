@@ -116,7 +116,7 @@ const PasswordChecker = () => {
       </h2>
       <p className="text-xs sm:text-sm text-gray-500 mb-4 sm:mb-6">
         See how fast an attacker — or an{' '}
-        <span className="text-violet-400 font-semibold">AI</span> — would crack it.
+        <span className="text-cyan-400 font-semibold">AI</span> — would crack it.
       </p>
 
       {/* Input */}
@@ -130,7 +130,7 @@ const PasswordChecker = () => {
             w-full bg-[#0d0d14] border border-gray-700 rounded-xl
             px-4 py-3 pr-12
             font-mono text-sm sm:text-base text-white placeholder-gray-600
-            focus:outline-none focus:border-violet-500/60 focus:ring-1 focus:ring-violet-500/30
+            focus:outline-none focus:border-cyan-500/60 focus:ring-1 focus:ring-cyan-500/30
             transition-all duration-200
           "
         />

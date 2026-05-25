@@ -4,7 +4,7 @@ const blogPosts = [
   {
     id: 1,
     category: 'Security Tips',
-    categoryColor: 'violet',
+    categoryColor: 'cyan',
     title: 'Why AI Crack Analysis Matters for Your Passwords',
     excerpt: 'Traditional password strength meters only account for brute-force attacks. But modern threats use AI and pattern recognition. Learn how our neural network analysis simulates real-world AI attacks to give you accurate crack time estimates.',
     date: 'May 25, 2026',
@@ -430,7 +430,7 @@ const Blog = () => {
         {/* Back Button */}
         <button
           onClick={() => setSelectedPost(null)}
-          className="flex items-center gap-2 text-violet-400 hover:text-violet-300 transition-colors mb-6 font-semibold"
+          className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors mb-6 font-semibold"
         >
           ← Back to Blog
         </button>
@@ -465,7 +465,7 @@ const Blog = () => {
               }
               if (paragraph.startsWith('###')) {
                 return (
-                  <h3 key={idx} className="text-xl font-semibold text-violet-300 mt-6 mb-3">
+                  <h3 key={idx} className="text-xl font-semibold text-cyan-300 mt-6 mb-3">
                     {paragraph.replace('### ', '')}
                   </h3>
                 )
@@ -526,13 +526,13 @@ const Blog = () => {
       {/* Featured Blog Posts Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {blogPosts.map((post) => (
-          <article key={post.id} className="bg-[#111118] border border-gray-800 rounded-2xl p-6 sm:p-8 hover:border-violet-500/50 transition-all duration-300 group">
+          <article key={post.id} className="bg-[#111118] border border-gray-800 rounded-2xl p-6 sm:p-8 hover:border-cyan-500/50 transition-all duration-300 group">
             <div className="mb-4">
               <span className={`inline-block px-3 py-1 text-xs font-mono text-${post.categoryColor}-300 bg-${post.categoryColor}-600/10 border border-${post.categoryColor}-500/20 rounded-full`}>
                 {post.category}
               </span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-violet-300 transition-colors">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
               {post.title}
             </h3>
             <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-4">
@@ -542,7 +542,7 @@ const Blog = () => {
               <span>{post.date}</span>
               <button
                 onClick={() => setSelectedPost(post)}
-                className="text-violet-400 hover:text-violet-300 transition-colors font-semibold"
+                className="text-cyan-400 hover:text-cyan-300 transition-colors font-semibold"
               >
                 Read More →
               </button>
@@ -552,7 +552,7 @@ const Blog = () => {
       </div>
 
       {/* Newsletter Signup */}
-      <div className="mt-16 bg-gradient-to-r from-violet-600/10 to-purple-600/10 border border-violet-500/20 rounded-2xl p-8 sm:p-12">
+      <div className="mt-16 bg-gradient-to-r from-cyan-600/10 to-blue-600/10 border border-cyan-500/20 rounded-2xl p-8 sm:p-12">
         <h3 className="text-2xl font-bold text-white mb-3">
           Stay Updated on Security Trends
         </h3>
@@ -566,11 +566,11 @@ const Blog = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSubscribe()}
-            className="flex-1 bg-[#0d0d14] border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-violet-500/60 focus:ring-1 focus:ring-violet-500/30 transition-all"
+            className="flex-1 bg-[#0d0d14] border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/60 focus:ring-1 focus:ring-cyan-500/30 transition-all"
           />
           <button
             onClick={handleSubscribe}
-            className="bg-violet-600 hover:bg-violet-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors whitespace-nowrap"
+            className="bg-cyan-600 hover:bg-cyan-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors whitespace-nowrap"
           >
             Subscribe
           </button>

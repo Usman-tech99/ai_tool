@@ -13,7 +13,7 @@ const SeoContent = () => (
         of people continue to use dangerously predictable passwords.
       </p>
 
-      <h3 className="text-lg font-semibold text-violet-300 mb-3 mt-6">
+      <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
         What Makes a Password Weak?
       </h3>
       <ul className="list-disc list-inside text-gray-400 space-y-2 mb-5 leading-relaxed">
@@ -24,7 +24,7 @@ const SeoContent = () => (
         <li>Relying solely on lowercase letters with no numbers or special characters.</li>
       </ul>
 
-      <h3 className="text-lg font-semibold text-violet-300 mb-3 mt-6">
+      <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
         Anatomy of a Strong Password
       </h3>
       <p className="text-gray-400 leading-relaxed mb-4">
@@ -40,7 +40,7 @@ const SeoContent = () => (
         <li>Unique per account — <em>never</em> reused across sites.</li>
       </ul>
 
-      <h3 className="text-lg font-semibold text-violet-300 mb-3 mt-6">
+      <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
         Best Practices for Password Safety
       </h3>
       <p className="text-gray-400 leading-relaxed mb-4">

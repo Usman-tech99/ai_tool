@@ -77,7 +77,7 @@ const PasswordGenerator = () => {
         Password Generator
       </h2>
       <p className="text-xs sm:text-sm text-gray-500 mb-4 sm:mb-6">
-        Customize options and hit <span className="text-violet-400 font-semibold">Generate</span>.
+        Customize options and hit <span className="text-cyan-400 font-semibold">Generate</span>.
       </p>
 
       {/* Password display */}
@@ -97,7 +97,7 @@ const PasswordGenerator = () => {
             transition-all duration-200
             ${copied
               ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
-              : 'bg-violet-600/20 text-violet-300 border border-violet-500/30 hover:bg-violet-600/40 hover:border-violet-400'}
+              : 'bg-cyan-600/20 text-cyan-300 border border-cyan-500/30 hover:bg-cyan-600/40 hover:border-cyan-400'}
           `}
         >
           {copied ? '✓ Copied!' : 'Copy to Clipboard'}
@@ -111,7 +111,7 @@ const PasswordGenerator = () => {
       <div className="mt-6">
         <div className="flex justify-between items-center mb-3">
           <label className="text-sm text-gray-300 font-medium">Length</label>
-          <span className="font-mono text-violet-300 font-bold text-lg w-10 text-right">
+          <span className="font-mono text-cyan-300 font-bold text-lg w-10 text-right">
             {length}
           </span>
         </div>
@@ -138,7 +138,7 @@ const PasswordGenerator = () => {
               flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl border cursor-pointer
               transition-all duration-150 select-none
               ${options[key]
-                ? 'border-violet-500/50 bg-violet-600/10 text-gray-200'
+                ? 'border-cyan-500/50 bg-cyan-600/10 text-gray-200'
                 : 'border-gray-700 bg-gray-900/40 text-gray-500 hover:border-gray-600'}
             `}
           >
