@@ -158,10 +158,10 @@ const PasswordGenerator = () => {
         onClick={generate}
         className="
           mt-4 sm:mt-6 w-full py-3 sm:py-3.5 rounded-xl font-bold text-sm sm:text-base tracking-wide
-          bg-gradient-to-r from-violet-600 to-purple-600
-          hover:from-violet-500 hover:to-purple-500
+          bg-gradient-to-r from-cyan-600 to-blue-600
+          hover:from-cyan-500 hover:to-blue-500
           active:scale-[0.98]
-          text-white shadow-lg shadow-violet-900/40
+          text-white shadow-lg shadow-cyan-900/40
           transition-all duration-200
         "
       >
