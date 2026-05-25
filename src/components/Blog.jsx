@@ -409,6 +409,20 @@ Start using cyberaipulse's generator today for maximum security with zero server
 
 const Blog = () => {
   const [selectedPost, setSelectedPost] = useState(null)
+  const [email, setEmail] = useState('')
+  const [subscriptionMessage, setSubscriptionMessage] = useState('')
+
+  const handleSubscribe = () => {
+    if (!email || !email.includes('@')) {
+      setSubscriptionMessage('Please enter a valid email')
+      setTimeout(() => setSubscriptionMessage(''), 3000)
+      return
+    }
+    
+    setSubscriptionMessage('✓ Thank you for subscribing!')
+    setEmail('')
+    setTimeout(() => setSubscriptionMessage(''), 3000)
+  }
 
   if (selectedPost) {
     return (
@@ -549,12 +563,27 @@ const Blog = () => {
           <input
             type="email"
             placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && handleSubscribe()}
             className="flex-1 bg-[#0d0d14] border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-violet-500/60 focus:ring-1 focus:ring-violet-500/30 transition-all"
           />
-          <button className="bg-violet-600 hover:bg-violet-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors">
+          <button
+            onClick={handleSubscribe}
+            className="bg-violet-600 hover:bg-violet-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors whitespace-nowrap"
+          >
             Subscribe
           </button>
         </div>
+        {subscriptionMessage && (
+          <p className={`mt-3 text-sm font-semibold transition-all ${
+            subscriptionMessage.includes('Thank') 
+              ? 'text-emerald-400' 
+              : 'text-orange-400'
+          }`}>
+            {subscriptionMessage}
+          </p>
+        )}
       </div>
     </section>
   )
