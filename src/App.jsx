@@ -100,13 +100,18 @@ const App = () => {
 
       {/* ── Footer ── */}
       <footer className="border-t border-gray-800/60 bg-[#080810]">
-        <div className="max-w-6xl mx-auto w-full px-3 sm:px-5 lg:px-8 py-6 sm:py-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs sm:text-sm text-gray-600">
-          <p>© {new Date().getFullYear()} cyberaipulse. All rights reserved.</p>
-          <nav id="privacy" className="flex flex-wrap justify-center gap-4 sm:gap-6">
-            <button onClick={() => handleNavigate('privacy')} className="text-gray-400 hover:text-cyan-300 transition-colors cursor-pointer">Privacy Policy</button>
-            <button onClick={() => handleNavigate('terms')} className="text-gray-400 hover:text-cyan-300 transition-colors cursor-pointer">Terms of Use</button>
-            <button onClick={() => handleNavigate('contact')} className="text-gray-400 hover:text-cyan-300 transition-colors cursor-pointer">Contact</button>
-          </nav>
+        <div className="max-w-6xl mx-auto w-full px-3 sm:px-5 lg:px-8 py-6 sm:py-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs sm:text-sm text-gray-600 mb-4">
+            <p>© {new Date().getFullYear()} cyberaipulse. All rights reserved.</p>
+            <nav id="privacy" className="flex flex-wrap justify-center gap-4 sm:gap-6">
+              <button onClick={() => handleNavigate('privacy')} className="text-gray-400 hover:text-cyan-300 transition-colors cursor-pointer">Privacy Policy</button>
+              <button onClick={() => handleNavigate('terms')} className="text-gray-400 hover:text-cyan-300 transition-colors cursor-pointer">Terms of Use</button>
+              <button onClick={() => handleNavigate('contact')} className="text-gray-400 hover:text-cyan-300 transition-colors cursor-pointer">Contact</button>
+            </nav>
+          </div>
+          <div className="text-center text-xs sm:text-sm">
+            <p className="font-bold text-cyan-400">Built By Usman Shafiq</p>
+          </div>
         </div>
       </footer>
 
