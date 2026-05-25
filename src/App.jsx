@@ -13,7 +13,7 @@ const App = () => {
           <div className="flex items-center">
             <img
               src="/logo.png"
-              alt="PassForge Logo"
+              alt="cyberaipulse Logo"
               className="h-9 sm:h-10 w-auto object-contain"
             />
           </div>
@@ -74,7 +74,7 @@ const App = () => {
       {/* ── Footer ── */}
       <footer className="border-t border-gray-800/60 bg-[#080810]">
         <div className="max-w-6xl mx-auto w-full px-3 sm:px-5 lg:px-8 py-6 sm:py-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs sm:text-sm text-gray-600">
-          <p>© {new Date().getFullYear()} PassForge. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} cyberaipulse. All rights reserved.</p>
           <nav id="privacy" className="flex flex-wrap justify-center gap-4 sm:gap-6">
             <a href="#" className="hover:text-gray-300 transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-gray-300 transition-colors">Terms of Use</a>

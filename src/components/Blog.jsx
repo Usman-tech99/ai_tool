@@ -85,7 +85,7 @@ const Blog = () => (
           How to Use Our Cryptographically Secure Generator
         </h3>
         <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-4">
-          Every password generated uses the browser's native crypto.getRandomValues() API for true randomness. We never store data on servers. Here's how to get the most out of PassForge's client-side security.
+          Every password generated uses the browser's native crypto.getRandomValues() API for true randomness. We never store data on servers. Here's how to get the most out of cyberaipulse's client-side security.
         </p>
         <div className="flex items-center justify-between text-xs text-gray-500">
           <span>May 22, 2026</span>
