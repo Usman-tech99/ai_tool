@@ -190,7 +190,7 @@ const Terms = ({ onBack }) => (
           For questions about these Terms of Service:
         </p>
         <div className="bg-[#0d0d14] border border-gray-700 rounded-lg p-4 mt-4 text-gray-300">
-          <p><strong>Email:</strong> legal@cyberaipulse.tech</p>
+          <p><strong>Email:</strong> shafiqusman339@gmail.com</p>
           <p className="mt-2"><strong>Subject:</strong> "Terms of Service Inquiry"</p>
         </div>
 

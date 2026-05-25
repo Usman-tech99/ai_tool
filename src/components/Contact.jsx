@@ -75,8 +75,8 @@ const Contact = ({ onBack }) => {
               <p className="text-gray-300">
                 Legal inquiries and terms questions:
               </p>
-              <a href="mailto:legal@cyberaipulse.tech" className="text-cyan-400 hover:text-cyan-300 font-mono font-semibold">
-                legal@cyberaipulse.tech
+              <a href="mailto:shafiqusman339@gmail.com" className="text-cyan-400 hover:text-cyan-300 font-mono font-semibold">
+                shafiqusman339@gmail.com
               </a>
             </div>
 
