@@ -8,6 +8,8 @@ import Blog from './components/Blog'
 import Privacy from './components/Privacy'
 import Terms from './components/Terms'
 import Contact from './components/Contact'
+import SecurityCursor from './components/SecurityCursor'
+import SecurityElements from './components/SecurityElements'
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState('home')
@@ -30,6 +32,8 @@ const App = () => {
   }, [currentPage])
   return (
     <div className="min-h-screen w-full bg-[#0a0a0f] text-white overflow-x-hidden">
+      <SecurityCursor />
+      <SecurityElements />
 
       {/* ── Header ── */}
       <header className="border-b border-gray-800/60 bg-[#0a0a0f]/80 backdrop-blur-md sticky top-0 z-50">

@@ -11,6 +11,7 @@
     background-color: #0a0a0f;
     -webkit-text-size-adjust: 100%;
     overflow-x: hidden;
+    cursor: none;
   }
   * {
     box-sizing: border-box;
@@ -21,6 +22,133 @@
   .strength-bar {
     @apply h-2 rounded-full transition-all duration-500 ease-in-out;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* ─── CUSTOM SECURITY CURSOR ─────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════ */
+
+.cursor-custom {
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.8), rgba(6, 182, 212, 0.3));
+  border: 2px solid rgba(34, 211, 238, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.4), inset 0 0 8px rgba(34, 211, 238, 0.2);
+  animation: pulseSecurityCursor 1.5s ease-in-out infinite;
+}
+
+.cursor-custom::before {
+  content: '🔒';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.7);
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.cursor-custom-trail {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: rgba(34, 211, 238, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  box-shadow: 0 0 6px rgba(34, 211, 238, 0.6);
+}
+
+@keyframes pulseSecurityCursor {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(34, 211, 238, 0.4), inset 0 0 8px rgba(34, 211, 238, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.6), inset 0 0 12px rgba(34, 211, 238, 0.3);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* ─── SECURITY ANIMATIONS ────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════ */
+
+@keyframes floatingSecurity {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.6;
+  }
+}
+
+@keyframes scanLine {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes securityGlow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(34, 211, 238, 0.5), 0 0 20px rgba(6, 182, 212, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(34, 211, 238, 0.8), 0 0 30px rgba(6, 182, 212, 0.5);
+  }
+}
+
+@keyframes shieldPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.6);
+  }
+}
+
+@keyframes lockUnlock {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.95);
+  }
+}
+
+.security-float {
+  animation: floatingSecurity 4s ease-in-out infinite;
+}
+
+.scan-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to bottom, transparent, rgba(34, 211, 238, 0.8), transparent);
+  animation: scanLine 2s linear infinite;
+}
+
+.security-glow {
+  animation: securityGlow 2s ease-in-out infinite;
+}
+
+.shield-pulse {
+  animation: shieldPulse 2s ease-in-out infinite;
+}
+
+.lock-animation {
+  animation: lockUnlock 2s ease-in-out infinite;
 }
 
 /* Custom range slider */
