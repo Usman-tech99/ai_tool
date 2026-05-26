@@ -20,12 +20,13 @@ const App = () => {
       {/* ── Header ── */}
       <header className="border-b border-gray-800/60 bg-[#0a0a0f]/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-6xl mx-auto w-full px-3 sm:px-5 lg:px-8 py-3 sm:py-4 flex items-center justify-between">
-          <div className="flex items-center">
+          <div className="flex items-center gap-2 sm:gap-3">
             <img
               src="/logo.png"
               alt="cyberaipulse Logo"
               className="h-9 sm:h-10 w-auto object-contain"
             />
+            <span className="text-lg sm:text-xl font-bold text-cyan-400">CyberAIPulse</span>
           </div>
           <nav className="hidden md:flex gap-4 lg:gap-6 text-sm text-gray-400">
             <a href="#generator" className="hover:text-cyan-300 transition-colors">Generator</a>
