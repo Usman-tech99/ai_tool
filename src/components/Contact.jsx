@@ -21,7 +21,20 @@ const Contact = ({ onBack }) => {
       return
     }
 
-    setFormMessage('✓ Thank you for reaching out! We\'ll respond within 24 hours.')
+    // Create pre-filled Gmail message
+    const subject = encodeURIComponent('Message from CyberaiPulse Contact Form')
+    const emailBody = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    )
+    
+    // Open Gmail compose window
+    window.open(
+      `https://mail.google.com/mail/?view=cm&fs=1&to=shafiqusman339@gmail.com&su=${subject}&body=${emailBody}`,
+      '_blank',
+      'width=700,height=600'
+    )
+
+    setFormMessage('✓ Gmail is opening! Review the message and send it manually.')
     setName('')
     setEmail('')
     setMessage('')
