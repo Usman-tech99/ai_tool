@@ -26,7 +26,9 @@ const App = () => {
               alt="cyberaipulse Logo"
               className="h-9 sm:h-10 w-auto object-contain"
             />
-            <span className="text-lg sm:text-xl font-bold text-cyan-400">CyberAIPulse</span>
+            <div className="text-lg sm:text-xl font-bold">
+              <span className="text-cyan-400">Cyberai</span><span className="text-white">Pulse</span>
+            </div>
           </div>
           <nav className="hidden md:flex gap-4 lg:gap-6 text-sm text-gray-400">
             <a href="#generator" className="hover:text-cyan-300 transition-colors">Generator</a>
