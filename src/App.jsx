@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import PasswordGenerator from './components/PasswordGenerator'
 import PasswordChecker from './components/PasswordChecker'
 import SeoContent from './components/SeoContent'
@@ -14,6 +16,18 @@ const App = () => {
     setCurrentPage(page)
     window.scrollTo(0, 0)
   }
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: false,
+      offset: 100
+    })
+    
+    // Refresh AOS on page change
+    AOS.refresh()
+  }, [currentPage])
   return (
     <div className="min-h-screen w-full bg-[#0a0a0f] text-white overflow-x-hidden">
 
@@ -55,12 +69,12 @@ const App = () => {
       {currentPage === 'home' && (
         <>
           {/* ── Hero ── */}
-          <section className="max-w-6xl mx-auto w-full px-3 sm:px-5 lg:px-8 pt-8 sm:pt-12 lg:pt-16 pb-6 sm:pb-8 text-center">
-            <div className="inline-flex flex-wrap justify-center items-center gap-2 bg-cyan-600/10 border border-cyan-500/20 rounded-full px-3 sm:px-4 py-1.5 text-[10px] sm:text-xs text-cyan-300 font-mono uppercase tracking-widest mb-4 sm:mb-6">
+          <section className="max-w-6xl mx-auto w-full px-3 sm:px-5 lg:px-8 pt-8 sm:pt-12 lg:pt-16 pb-6 sm:pb-8 text-center" data-aos="fade-up">
+            <div className="inline-flex flex-wrap justify-center items-center gap-2 bg-cyan-600/10 border border-cyan-500/20 rounded-full px-3 sm:px-4 py-1.5 text-[10px] sm:text-xs text-cyan-300 font-mono uppercase tracking-widest mb-4 sm:mb-6" data-aos="fade-up" data-aos-delay="100">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse flex-shrink-0" />
               Cryptographically Secure · 100% Client-Side · AI Crack Analysis
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-3 sm:mb-4 px-2">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-3 sm:mb-4 px-2" data-aos="fade-up" data-aos-delay="200">
               Generate & Test{' '}
               <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                 Secure Passwords
@@ -77,12 +91,12 @@ const App = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 items-start">
 
               {/* Password Generator */}
-              <div id="generator" className="min-w-0">
+              <div id="generator" className="min-w-0" data-aos="fade-up" data-aos-delay="300">
                 <PasswordGenerator />
               </div>
 
               {/* Password Checker */}
-              <div id="checker" className="min-w-0">
+              <div id="checker" className="min-w-0" data-aos="fade-up" data-aos-delay="400">
                 <PasswordChecker />
               </div>
 
@@ -90,12 +104,12 @@ const App = () => {
           </main>
 
           {/* ── SEO Content ── */}
-          <div id="learn">
+          <div id="learn" data-aos="fade-up" data-aos-delay="500">
             <SeoContent />
           </div>
 
           {/* ── Blog ── */}
-          <div id="blog" className="border-t border-gray-800/60">
+          <div id="blog" className="border-t border-gray-800/60" data-aos="fade-up" data-aos-delay="600">
             <Blog />
           </div>
         </>
