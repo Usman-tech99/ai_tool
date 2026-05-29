@@ -8,20 +8,36 @@ const SeoContent = () => (
       <p className="text-gray-400 leading-relaxed mb-5">
         In today's hyper-connected digital landscape, a strong password is your first and most
         critical line of defense against unauthorized access. Cybercriminals use sophisticated
-        tools — including brute-force attacks, dictionary attacks, and credential-stuffing bots
-        — that can crack a weak password in seconds. Yet despite widespread awareness, millions
-        of people continue to use dangerously predictable passwords.
+        tools — including brute-force attacks, dictionary attacks, credential-stuffing bots,
+        AI-powered pattern recognition, and GPU-accelerated hash cracking — that can compromise
+        weak passwords in seconds. Yet despite widespread awareness of security threats, millions
+        of people continue to use dangerously predictable passwords that violate fundamental
+        security principles.
+      </p>
+
+      <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
+        Why Passwords Matter Now More Than Ever
+      </h3>
+      <p className="text-gray-400 leading-relaxed mb-4">
+        Data breaches have reached epidemic proportions. In 2024 alone, billions of passwords
+        were stolen from major companies, healthcare providers, financial institutions, and
+        government agencies. When attackers gain access to password databases, they immediately
+        deploy GPU clusters to crack weak passwords offline, bypassing all rate-limiting protections.
+        A weak password that seems "safe enough" online becomes critically vulnerable the moment
+        that password database is breached.
       </p>
 
       <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
         What Makes a Password Weak?
       </h3>
       <ul className="list-disc list-inside text-gray-400 space-y-2 mb-5 leading-relaxed">
-        <li>Short length — passwords under 8 characters are cracked almost instantly.</li>
-        <li>Common words or phrases (e.g., <code className="text-emerald-400 font-mono text-sm">password</code>, <code className="text-emerald-400 font-mono text-sm">qwerty123</code>).</li>
-        <li>Personal information such as birthdays, names, or pet names.</li>
-        <li>Reusing the same password across multiple websites or services.</li>
+        <li>Short length — passwords under 12 characters are cracked almost instantly with modern GPU clusters.</li>
+        <li>Common words or phrases (e.g., <code className="text-emerald-400 font-mono text-sm">password</code>, <code className="text-emerald-400 font-mono text-sm">qwerty123</code>, <code className="text-emerald-400 font-mono text-sm">letmein</code>).</li>
+        <li>Personal information such as birthdays, names, pet names, or anniversary dates.</li>
+        <li>Reusing the same password across multiple websites and services — a single breach compromises all accounts.</li>
         <li>Relying solely on lowercase letters with no numbers or special characters.</li>
+        <li>Predictable patterns like incrementing numbers (Password123, Password124) or keyboard walks (qwerty, asdfgh).</li>
+        <li>Sequential character substitutions that AI systems are trained to recognize (P@ssw0rd, p@55w0rd, etc.).</li>
       </ul>
 
       <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
@@ -29,49 +45,142 @@ const SeoContent = () => (
       </h3>
       <p className="text-gray-400 leading-relaxed mb-4">
         A truly secure password combines <span className="text-white font-medium">length</span>,{' '}
-        <span className="text-white font-medium">complexity</span>, and{' '}
-        <span className="text-white font-medium">randomness</span>. Security experts recommend:
+        <span className="text-white font-medium">randomness</span>, and{' '}
+        <span className="text-white font-medium">uniqueness</span>. Security experts and government
+        standards organizations (including NIST, the U.S. National Institute of Standards and
+        Technology) now recommend:
       </p>
       <ul className="list-disc list-inside text-gray-400 space-y-2 mb-5 leading-relaxed">
-        <li>A minimum of <strong className="text-white">16 characters</strong> — longer is always better.</li>
+        <li>A minimum of <strong className="text-white">16 characters</strong> for critical accounts like email and banking.</li>
+        <li>A minimum of <strong className="text-white">14 characters</strong> for important accounts like social media.</li>
+        <li>A minimum of <strong className="text-white">12 characters</strong> for casual accounts with low risk.</li>
         <li>A mix of <strong className="text-white">uppercase and lowercase letters</strong>.</li>
-        <li>At least one <strong className="text-white">number</strong> and one <strong className="text-white">special symbol</strong> (e.g., <code className="text-emerald-400 font-mono text-sm">!@#$%</code>).</li>
-        <li>Completely <strong className="text-white">random</strong> — generated by a tool, not your imagination.</li>
-        <li>Unique per account — <em>never</em> reused across sites.</li>
+        <li>At least one <strong className="text-white">number</strong> and one <strong className="text-white">special symbol</strong> (e.g., <code className="text-emerald-400 font-mono text-sm">!@#$%^&*()</code>).</li>
+        <li>Completely <strong className="text-white">random</strong> — generated by a tool, not created by human imagination which is predictable.</li>
+        <li><strong className="text-white">Unique per account</strong> — <em>never</em> reused across sites, or even adapted slightly (Password1!, Password1@, etc.).</li>
       </ul>
+
+      <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
+        Understanding Encryption and Hash Functions
+      </h3>
+      <p className="text-gray-400 leading-relaxed mb-4">
+        When you create a password on a website, the server doesn't store your actual password.
+        Instead, it converts your password into a "hash" using a one-way mathematical function.
+        This hash is what gets stored in the database. When you log in, the server hashes your
+        input and compares it to the stored hash. If they match, you're granted access.
+      </p>
+      <p className="text-gray-400 leading-relaxed mb-4">
+        In a data breach where attackers steal the password database, they get the hashes, not
+        the original passwords. However, they can still crack passwords by: (1) using precomputed
+        hash tables for common passwords, (2) employing GPU clusters to compute billions of hashes
+        per second, or (3) using AI to intelligently guess likely password patterns before attempting
+        brute force. Strong passwords with 16+ characters resist all three approaches.
+      </p>
 
       <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
         Best Practices for Password Safety
       </h3>
       <p className="text-gray-400 leading-relaxed mb-4">
-        Generating a strong password is only half the battle. Follow these habits to stay
-        protected long-term:
+        Generating a strong password is only half the battle. Protecting and managing your
+        passwords requires ongoing security habits and best practices:
       </p>
       <ul className="list-disc list-inside text-gray-400 space-y-2 mb-5 leading-relaxed">
         <li>
-          <strong className="text-white">Use a Password Manager</strong> — tools like Bitwarden, 1Password, or
-          KeePass securely store all your credentials so you only need to remember one master password.
+          <strong className="text-white">Use a Password Manager</strong> — Tools like Bitwarden (free and open-source),
+          1Password, KeePass, or Dashlane securely store all your passwords encrypted with military-grade
+          AES-256 encryption. You only need to remember one strong master password. Password managers sync
+          across devices and fill login forms automatically, eliminating the need to memorize or type passwords.
         </li>
         <li>
-          <strong className="text-white">Enable Two-Factor Authentication (2FA)</strong> — adds an extra
-          verification layer so a stolen password alone cannot grant access.
+          <strong className="text-white">Enable Two-Factor Authentication (2FA)</strong> — Adds an extra verification
+          layer so a stolen password alone cannot grant access. Use authenticator apps (Google Authenticator, Authy)
+          or hardware security keys (YubiKey), not SMS when possible (SMS is vulnerable to interception and SIM swapping).
         </li>
         <li>
-          <strong className="text-white">Rotate passwords regularly</strong> — especially after any
-          suspected breach or when a service notifies you of a data leak.
+          <strong className="text-white">Change Passwords After Breaches</strong> — When a service notifies you of a data leak,
+          immediately change your password on that site. Check haveibeenpwned.com to find out if your email appears in known breaches.
         </li>
         <li>
-          <strong className="text-white">Check breach databases</strong> — services like Have I Been Pwned
-          let you verify whether your email or password appears in known data breaches.
+          <strong className="text-white">Monitor Your Email for Breach Notifications</strong> — Services like Troy Hunt's Have I Been Pwned
+          (haveibeenpwned.com) send alerts when your email appears in newly discovered breaches. Subscribe to these notifications.
+        </li>
+        <li>
+          <strong className="text-white">Avoid Reusing Passwords</strong> — Even slight variations (Password1, Password2, Password@) are vulnerable
+          to AI pattern recognition. Use a password manager to generate completely unique passwords for every account.
+        </li>
+        <li>
+          <strong className="text-white">Never Share Your Password</strong> — Legitimate organizations (banks, email providers, social networks)
+          never ask for passwords via email or phone. Any such request is phishing. Type your password directly into official websites only.
         </li>
       </ul>
 
+      <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
+        The Role of Artificial Intelligence in Password Cracking
+      </h3>
+      <p className="text-gray-400 leading-relaxed mb-4">
+        Traditional password strength calculators use simple entropy formulas that assume all character combinations
+        are equally likely. However, humans aren't random. We create passwords with predictable patterns. Modern
+        attackers use neural networks trained on billions of leaked passwords to recognize these patterns and guess
+        them first, before attempting brute force.
+      </p>
+      <p className="text-gray-400 leading-relaxed mb-4">
+        cyberaipulse's password checker uses similar AI analysis to evaluate passwords like real attackers do.
+        We don't just count bits of entropy—we analyze patterns humans typically create, allowing us to give you
+        realistic, practical password strength estimates rather than overly optimistic theoretical calculations.
+      </p>
+
+      <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
+        Attack Types and Why They Matter
+      </h3>
+      <p className="text-gray-400 leading-relaxed mb-4">
+        <strong className="text-white">Online Attacks (Rate-Limited):</strong> Attackers try passwords against live login pages.
+        Servers block accounts after 5-10 failed attempts, preventing brute force. This limits attackers to about 100 attempts per second.
+        Even weak passwords are protected from this attack type.
+      </p>
+      <p className="text-gray-400 leading-relaxed mb-4">
+        <strong className="text-white">Offline Hash Attacks (GPU-Accelerated):</strong> Attackers obtain stolen password hashes from breached databases.
+        Without account lockout limits, they can attempt 10-100 billion guesses per second using GPU clusters. This is where password length
+        matters critically. A 12-character password might be cracked in hours or days. A 16+ character password resists GPU attacks for centuries.
+      </p>
+      <p className="text-gray-400 leading-relaxed mb-4">
+        <strong className="text-white">AI-Guided Pattern Attacks:</strong> Sophisticated attackers use neural networks to intelligently guess passwords,
+        starting with patterns humans commonly create. This reduces the effective strength of human-created passwords but has minimal impact on
+        truly random, long passwords generated by tools.
+      </p>
+
+      <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
+        Why Length is More Important Than Complexity
+      </h3>
+      <p className="text-gray-400 leading-relaxed mb-4">
+        Many organizations mandate complex passwords: uppercase, lowercase, numbers, and symbols. This often makes passwords weaker, not stronger.
+        Users forced to include complexity often create predictable patterns: capitalizing the first letter, placing numbers at the end,
+        appending a symbol—exactly what attackers expect.
+      </p>
+      <p className="text-gray-400 leading-relaxed mb-4">
+        Research shows that length provides exponential security improvement. A 20-character password using only lowercase letters is far more
+        secure than a 12-character password with maximum complexity, because each additional character multiplies attack time. A passphrase like
+        "correct-horse-battery-staple" (25 lowercase characters) has 115 bits of entropy and would take 50,000 years to crack with a GPU cluster,
+        despite using no special characters.
+      </p>
+
+      <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
+        Server-Side vs. Client-Side Security
+      </h3>
+      <p className="text-gray-400 leading-relaxed mb-4">
+        cyberaipulse operates entirely on your device using your browser's <code className="text-emerald-400 font-mono text-sm">crypto.getRandomValues()</code> API—
+        the same cryptographic standard used by financial institutions and government agencies. This means:
+      </p>
+      <ul className="list-disc list-inside text-gray-400 space-y-2 mb-5 leading-relaxed">
+        <li>Your passwords are never transmitted to any server</li>
+        <li>Your passwords are never stored anywhere except where you choose (your password manager, your device)</li>
+        <li>Even cyberaipulse developers cannot see or access the passwords you generate or test</li>
+        <li>No account creation or login required—complete anonymity</li>
+      </ul>
+
       <p className="text-gray-500 leading-relaxed text-sm border-t border-gray-800 pt-5 mt-6">
-        Our password generator uses the browser's built-in{' '}
-        <code className="text-emerald-400 font-mono">crypto.getRandomValues()</code> API —
-        a cryptographically secure random number generator — ensuring that every password
-        produced is truly unpredictable. No passwords are ever transmitted to or stored on any
-        server. Your security is entirely local.
+        Our password generator uses the browser's cryptographically secure random number generator, ensuring that every password
+        produced is truly unpredictable and resistant to statistical analysis. No passwords are ever transmitted to or stored on any
+        server. Your security remains entirely local to your device, giving you complete control and privacy.
       </p>
     </div>
   </section>

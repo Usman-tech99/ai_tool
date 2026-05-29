@@ -5,9 +5,11 @@ import PasswordGenerator from './components/PasswordGenerator'
 import PasswordChecker from './components/PasswordChecker'
 import SeoContent from './components/SeoContent'
 import Blog from './components/Blog'
+import FAQ from './components/FAQ'
 import Privacy from './components/Privacy'
 import Terms from './components/Terms'
 import Contact from './components/Contact'
+import SecurePasswordImportance from './components/SecurePasswordImportance'
 import SecurityCursor from './components/SecurityCursor'
 import SecurityElements from './components/SecurityElements'
 
@@ -53,6 +55,8 @@ const App = () => {
             <a href="#checker"   className="hover:text-cyan-300 transition-colors">Checker</a>
             <a href="#learn"     className="hover:text-cyan-300 transition-colors">Learn</a>
             <a href="#blog"      className="hover:text-cyan-300 transition-colors">Blog</a>
+            <button onClick={() => handleNavigate('faq')} className="hover:text-cyan-300 transition-colors cursor-pointer">FAQ</button>
+            <button onClick={() => handleNavigate('importance')} className="hover:text-cyan-300 transition-colors cursor-pointer">Importance</button>
           </nav>
         </div>
       </header>
@@ -68,6 +72,14 @@ const App = () => {
 
       {currentPage === 'contact' && (
         <Contact onBack={() => handleNavigate('home')} />
+      )}
+
+      {currentPage === 'faq' && (
+        <FAQ />
+      )}
+
+      {currentPage === 'importance' && (
+        <SecurePasswordImportance onBack={() => handleNavigate('home')} />
       )}
 
       {currentPage === 'home' && (
@@ -125,6 +137,7 @@ const App = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs sm:text-sm text-gray-600 mb-4">
             <p>© {new Date().getFullYear()} cyberaipulse. All rights reserved.</p>
             <nav id="privacy" className="flex flex-wrap justify-center gap-4 sm:gap-6">
+              <button onClick={() => handleNavigate('faq')} className="text-gray-400 hover:text-cyan-300 transition-colors cursor-pointer">FAQ</button>
               <button onClick={() => handleNavigate('privacy')} className="text-gray-400 hover:text-cyan-300 transition-colors cursor-pointer">Privacy Policy</button>
               <button onClick={() => handleNavigate('terms')} className="text-gray-400 hover:text-cyan-300 transition-colors cursor-pointer">Terms of Use</button>
               <button onClick={() => handleNavigate('contact')} className="text-gray-400 hover:text-cyan-300 transition-colors cursor-pointer">Contact</button>
