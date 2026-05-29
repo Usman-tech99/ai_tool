@@ -1,11 +1,11 @@
 const SeoContent = () => (
   <section className="mt-8 sm:mt-12 lg:mt-16 max-w-4xl mx-auto w-full px-3 sm:px-5 lg:px-8 pb-10 sm:pb-16">
-    <div className="bg-[#111118] border border-gray-800 rounded-2xl p-5 sm:p-8 md:p-10">
-      <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 tracking-tight">
+    <div className="bg-gray-50 border border-gray-200 rounded-2xl p-5 sm:p-8 md:p-10">
+      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5 tracking-tight">
         The Importance of Secure Passwords
       </h2>
 
-      <p className="text-gray-400 leading-relaxed mb-5">
+      <p className="text-gray-700 leading-relaxed mb-5">
         In today's hyper-connected digital landscape, a strong password is your first and most
         critical line of defense against unauthorized access. Cybercriminals use sophisticated
         tools — including brute-force attacks, dictionary attacks, credential-stuffing bots,
@@ -15,10 +15,10 @@ const SeoContent = () => (
         security principles.
       </p>
 
-      <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
+      <h3 className="text-lg font-semibold text-cyan-600 mb-3 mt-6">
         Why Passwords Matter Now More Than Ever
       </h3>
-      <p className="text-gray-400 leading-relaxed mb-4">
+      <p className="text-gray-700 leading-relaxed mb-4">
         Data breaches have reached epidemic proportions. In 2024 alone, billions of passwords
         were stolen from major companies, healthcare providers, financial institutions, and
         government agencies. When attackers gain access to password databases, they immediately
@@ -27,12 +27,12 @@ const SeoContent = () => (
         that password database is breached.
       </p>
 
-      <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
+      <h3 className="text-lg font-semibold text-cyan-600 mb-3 mt-6">
         What Makes a Password Weak?
       </h3>
-      <ul className="list-disc list-inside text-gray-400 space-y-2 mb-5 leading-relaxed">
+      <ul className="list-disc list-inside text-gray-700 space-y-2 mb-5 leading-relaxed">
         <li>Short length — passwords under 12 characters are cracked almost instantly with modern GPU clusters.</li>
-        <li>Common words or phrases (e.g., <code className="text-emerald-400 font-mono text-sm">password</code>, <code className="text-emerald-400 font-mono text-sm">qwerty123</code>, <code className="text-emerald-400 font-mono text-sm">letmein</code>).</li>
+        <li>Common words or phrases (e.g., <code className="text-emerald-700 font-mono text-sm">password</code>, <code className="text-emerald-700 font-mono text-sm">qwerty123</code>, <code className="text-emerald-700 font-mono text-sm">letmein</code>).</li>
         <li>Personal information such as birthdays, names, pet names, or anniversary dates.</li>
         <li>Reusing the same password across multiple websites and services — a single breach compromises all accounts.</li>
         <li>Relying solely on lowercase letters with no numbers or special characters.</li>
