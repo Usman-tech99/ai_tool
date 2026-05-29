@@ -1014,42 +1014,42 @@ const Blog = () => {
         {/* Back Button */}
         <button
           onClick={() => setSelectedPost(null)}
-          className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors mb-6 font-semibold"
+          className="flex items-center gap-2 text-cyan-600 hover:text-cyan-700 transition-colors mb-6 font-semibold"
         >
           ← Back to Blog
         </button>
 
         {/* Full Article */}
-        <article className="bg-[#111118] border border-gray-800 rounded-2xl p-8 sm:p-12">
+        <article className="bg-white border border-gray-200 rounded-2xl p-8 sm:p-12">
           <div className="mb-6">
-            <span className={`inline-block px-3 py-1 text-xs font-mono text-${selectedPost.categoryColor}-300 bg-${selectedPost.categoryColor}-600/10 border border-${selectedPost.categoryColor}-500/20 rounded-full`}>
+            <span className={`inline-block px-3 py-1 text-xs font-mono text-${selectedPost.categoryColor}-700 bg-${selectedPost.categoryColor}-50 border border-${selectedPost.categoryColor}-300 rounded-full`}>
               {selectedPost.category}
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 tracking-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
             {selectedPost.title}
           </h1>
 
-          <div className="flex items-center gap-4 text-sm text-gray-500 mb-8 pb-8 border-b border-gray-800/60">
+          <div className="flex items-center gap-4 text-sm text-gray-600 mb-8 pb-8 border-b border-gray-300">
             <span>{selectedPost.date}</span>
             <span>•</span>
             <span>5 min read</span>
           </div>
 
           {/* Article Content */}
-          <div className="prose prose-invert max-w-none text-gray-300 space-y-6">
+          <div className="prose prose-lg max-w-none text-gray-800 space-y-6">
             {selectedPost.content.split('\n\n').map((paragraph, idx) => {
               if (paragraph.startsWith('##')) {
                 return (
-                  <h2 key={idx} className="text-2xl font-bold text-white mt-8 mb-4">
+                  <h2 key={idx} className="text-2xl font-bold text-gray-900 mt-8 mb-4">
                     {paragraph.replace('## ', '')}
                   </h2>
                 )
               }
               if (paragraph.startsWith('###')) {
                 return (
-                  <h3 key={idx} className="text-xl font-semibold text-cyan-300 mt-6 mb-3">
+                  <h3 key={idx} className="text-xl font-semibold text-cyan-700 mt-6 mb-3">
                     {paragraph.replace('### ', '')}
                   </h3>
                 )
@@ -1060,9 +1060,9 @@ const Blog = () => {
                     <table className="w-full text-sm border-collapse">
                       <tbody>
                         {paragraph.split('\n').map((row, ridx) => (
-                          <tr key={ridx} className="border-b border-gray-700">
+                          <tr key={ridx} className="border-b border-gray-300">
                             {row.split('|').map((cell, cidx) => (
-                              <td key={cidx} className="px-3 py-2 text-gray-300">
+                              <td key={cidx} className="px-3 py-2 text-gray-800">
                                 {cell.trim()}
                               </td>
                             ))}
@@ -1075,7 +1075,7 @@ const Blog = () => {
               }
               if (paragraph.startsWith('-')) {
                 return (
-                  <ul key={idx} className="list-disc list-inside space-y-2 text-gray-300">
+                  <ul key={idx} className="list-disc list-inside space-y-2 text-gray-800">
                     {paragraph.split('\n').map((item, lidx) => (
                       <li key={lidx} className="ml-4">
                         {item.replace('- ', '')}
@@ -1085,7 +1085,7 @@ const Blog = () => {
                 )
               }
               return (
-                <p key={idx} className="text-gray-300 leading-relaxed">
+                <p key={idx} className="text-gray-800 leading-relaxed">
                   {paragraph}
                 </p>
               )
@@ -1099,10 +1099,10 @@ const Blog = () => {
   return (
     <section className="max-w-4xl mx-auto w-full px-3 sm:px-5 lg:px-8 py-16 sm:py-20">
       <div className="mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 tracking-tight">
           Security Blog
         </h2>
-        <p className="text-gray-400 text-sm sm:text-base">
+        <p className="text-gray-600 text-sm sm:text-base">
           Expert insights on password security, best practices, and threat analysis.
         </p>
       </div>
@@ -1110,23 +1110,23 @@ const Blog = () => {
       {/* Featured Blog Posts Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {blogPosts.map((post) => (
-          <article key={post.id} className="bg-[#111118] border border-gray-800 rounded-2xl p-6 sm:p-8 hover:border-cyan-500/50 transition-all duration-300 group">
+          <article key={post.id} className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 hover:border-cyan-400 transition-all duration-300 group">
             <div className="mb-4">
-              <span className={`inline-block px-3 py-1 text-xs font-mono text-${post.categoryColor}-300 bg-${post.categoryColor}-600/10 border border-${post.categoryColor}-500/20 rounded-full`}>
+              <span className={`inline-block px-3 py-1 text-xs font-mono text-${post.categoryColor}-700 bg-${post.categoryColor}-50 border border-${post.categoryColor}-300 rounded-full`}>
                 {post.category}
               </span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 group-hover:text-cyan-600 transition-colors">
               {post.title}
             </h3>
-            <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-4">
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-4">
               {post.excerpt}
             </p>
-            <div className="flex items-center justify-between text-xs text-gray-500">
+            <div className="flex items-center justify-between text-xs text-gray-600">
               <span>{post.date}</span>
               <button
                 onClick={() => setSelectedPost(post)}
-                className="text-cyan-400 hover:text-cyan-300 transition-colors font-semibold"
+                className="text-cyan-600 hover:text-cyan-700 transition-colors font-semibold"
               >
                 Read More →
               </button>
@@ -1136,11 +1136,11 @@ const Blog = () => {
       </div>
 
       {/* Newsletter Signup */}
-      <div className="mt-16 bg-gradient-to-r from-cyan-600/10 to-blue-600/10 border border-cyan-500/20 rounded-2xl p-8 sm:p-12">
-        <h3 className="text-2xl font-bold text-white mb-3">
+      <div className="mt-16 bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-2xl p-8 sm:p-12">
+        <h3 className="text-2xl font-bold text-gray-900 mb-3">
           Stay Updated on Security Trends
         </h3>
-        <p className="text-gray-400 mb-6">
+        <p className="text-gray-700 mb-6">
           Get monthly insights on password security, AI threats, and best practices delivered to your inbox.
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
@@ -1150,7 +1150,7 @@ const Blog = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSubscribe()}
-            className="flex-1 bg-[#0d0d14] border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/60 focus:ring-1 focus:ring-cyan-500/30 transition-all"
+            className="flex-1 bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-400/50 transition-all"
           />
           <button
             onClick={handleSubscribe}
@@ -1162,8 +1162,8 @@ const Blog = () => {
         {subscriptionMessage && (
           <p className={`mt-3 text-sm font-semibold transition-all ${
             subscriptionMessage.includes('Thank') 
-              ? 'text-emerald-400' 
-              : 'text-orange-400'
+              ? 'text-emerald-600' 
+              : 'text-orange-600'
           }`}>
             {subscriptionMessage}
           </p>

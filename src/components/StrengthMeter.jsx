@@ -12,7 +12,7 @@ const StrengthMeter = ({ score }) => {
   return (
     <div className="mt-5">
       <div className="flex items-center justify-between mb-2">
-        <span className="text-xs text-gray-400 uppercase tracking-widest font-mono">
+        <span className="text-xs text-gray-600 uppercase tracking-widest font-mono">
           Password Strength
         </span>
         <span className={`text-xs font-bold uppercase tracking-widest font-mono ${current.text}`}>
@@ -28,7 +28,7 @@ const StrengthMeter = ({ score }) => {
               flex-1 h-2 rounded-full transition-all duration-500 ease-in-out
               ${i <= safeScore
                 ? `${level.color} shadow-md ${level.glow}`
-                : 'bg-gray-800'
+                : 'bg-gray-300'
               }
             `}
           />

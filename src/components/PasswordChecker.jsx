@@ -108,15 +108,15 @@ const PasswordChecker = () => {
   const strength = analysis ? STRENGTH[analysis.score] : null
 
   return (
-    <div className="bg-[#111118] border border-gray-800 rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl shadow-black/60 w-full h-full">
+    <div className="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg w-full h-full">
 
       {/* Header */}
-      <h2 className="text-lg sm:text-xl font-bold text-white mb-1 tracking-tight">
+      <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 tracking-tight">
         Password Checker
       </h2>
-      <p className="text-xs sm:text-sm text-gray-500 mb-4 sm:mb-6">
+      <p className="text-xs sm:text-sm text-gray-600 mb-4 sm:mb-6">
         See how fast an attacker — or an{' '}
-        <span className="text-cyan-400 font-semibold">AI</span> — would crack it.
+        <span className="text-cyan-600 font-semibold">AI</span> — would crack it.
       </p>
 
       {/* Input */}
@@ -127,16 +127,16 @@ const PasswordChecker = () => {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Type or paste a password…"
           className="
-            w-full bg-[#0d0d14] border border-gray-700 rounded-xl
+            w-full bg-gray-50 border border-gray-300 rounded-xl
             px-4 py-3 pr-12
-            font-mono text-sm sm:text-base text-white placeholder-gray-600
-            focus:outline-none focus:border-cyan-500/60 focus:ring-1 focus:ring-cyan-500/30
+            font-mono text-sm sm:text-base text-gray-900 placeholder-gray-500
+            focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-400/50
             transition-all duration-200
           "
         />
         <button
           onClick={() => setVisible((v) => !v)}
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition-colors"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-900 transition-colors"
           aria-label="Toggle visibility"
         >
           {visible ? (
@@ -154,20 +154,20 @@ const PasswordChecker = () => {
 
       {/* Empty state */}
       {!analysis && (
-        <div className="flex flex-col items-center justify-center py-10 sm:py-16 text-gray-700">
-          <svg className="w-10 h-10 mb-3 opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="flex flex-col items-center justify-center py-10 sm:py-16 text-gray-400">
+          <svg className="w-10 h-10 mb-3 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
           </svg>
-          <p className="text-sm font-mono opacity-40">Awaiting input…</p>
+          <p className="text-sm font-mono opacity-50">Awaiting input…</p>
         </div>
       )}
 
       {analysis && (
         <>
           {/* Strength + entropy */}
-          <div className="bg-gray-900/40 border border-gray-800 rounded-xl p-4 mb-4">
+          <div className="bg-gray-50 border border-gray-300 rounded-xl p-4 mb-4">
             <div className="flex items-center justify-between mb-2.5">
-              <span className="text-[10px] text-gray-500 uppercase tracking-widest font-mono">Strength</span>
+              <span className="text-[10px] text-gray-600 uppercase tracking-widest font-mono">Strength</span>
               <span className={`text-sm font-bold font-mono uppercase tracking-wide ${strength.text}`}>
                 {strength.label}
               </span>
@@ -177,14 +177,14 @@ const PasswordChecker = () => {
                 <div
                   key={s.label}
                   className={`flex-1 h-2 rounded-full transition-all duration-500 ${
-                    i <= analysis.score ? `${s.bar} shadow-md ${s.glow}` : 'bg-gray-800'
+                    i <= analysis.score ? `${s.bar} shadow-md ${s.glow}` : 'bg-gray-300'
                   }`}
                 />
               ))}
             </div>
-            <div className="flex justify-between text-[11px] font-mono text-gray-500">
-              <span>Entropy: <span className="text-gray-300">{analysis.entropy} bits</span></span>
-              <span>Length: <span className="text-gray-300">{analysis.length} chars</span></span>
+            <div className="flex justify-between text-[11px] font-mono text-gray-700">
+              <span>Entropy: <span className="text-gray-900">{analysis.entropy} bits</span></span>
+              <span>Length: <span className="text-gray-900">{analysis.length} chars</span></span>
             </div>
           </div>
 
@@ -200,8 +200,8 @@ const PasswordChecker = () => {
                 key={item.label}
                 className={`flex flex-col items-center py-2 rounded-lg border text-xs font-mono transition-all ${
                   item.active
-                    ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-300'
-                    : 'border-gray-800 bg-gray-900/30 text-gray-600'
+                    ? 'border-emerald-400 bg-emerald-50 text-emerald-700'
+                    : 'border-gray-300 bg-gray-50 text-gray-600'
                 }`}
               >
                 <span className="text-[10px] mb-0.5">{item.active ? '✓' : '✗'}</span>
@@ -212,20 +212,20 @@ const PasswordChecker = () => {
 
           {/* zxcvbn feedback: warning + suggestions */}
           {(analysis.warning || analysis.suggestions.length > 0) && (
-            <div className="mb-4 bg-amber-500/5 border border-amber-500/20 rounded-xl p-3">
-              <p className="text-[10px] text-amber-400 font-bold uppercase tracking-widest mb-2 flex items-center gap-1.5">
+            <div className="mb-4 bg-amber-50 border border-amber-300 rounded-xl p-3">
+              <p className="text-[10px] text-amber-900 font-bold uppercase tracking-widest mb-2 flex items-center gap-1.5">
                 <span>⚠</span> Security Feedback
               </p>
               {analysis.warning && (
-                <p className="text-[11px] text-amber-300 font-mono mb-1.5 flex items-start gap-2">
-                  <span className="w-1 h-1 rounded-full bg-amber-400 flex-shrink-0 mt-1.5" />
+                <p className="text-[11px] text-amber-900 font-mono mb-1.5 flex items-start gap-2">
+                  <span className="w-1 h-1 rounded-full bg-amber-700 flex-shrink-0 mt-1.5" />
                   {analysis.warning}
                 </p>
               )}
               <ul className="space-y-1.5">
                 {analysis.suggestions.map((s) => (
-                  <li key={s} className="flex items-start gap-2 text-[11px] text-amber-300/70 font-mono">
-                    <span className="w-1 h-1 rounded-full bg-amber-400/60 flex-shrink-0 mt-1.5" />
+                  <li key={s} className="flex items-start gap-2 text-[11px] text-amber-800 font-mono">
+                    <span className="w-1 h-1 rounded-full bg-amber-700 flex-shrink-0 mt-1.5" />
                     {s}
                   </li>
                 ))}
@@ -236,10 +236,10 @@ const PasswordChecker = () => {
           {/* Time to crack */}
           <div>
             <div className="flex items-center justify-between mb-2.5">
-              <p className="text-[10px] text-gray-500 uppercase tracking-widest font-mono">
+              <p className="text-[10px] text-gray-600 uppercase tracking-widest font-mono">
                 Time to Crack
               </p>
-              <span className="text-[10px] text-gray-600 font-mono">faster attack → less time</span>
+              <span className="text-[10px] text-gray-700 font-mono">faster attack → less time</span>
             </div>
             <div className="space-y-2">
               {[
@@ -253,14 +253,14 @@ const PasswordChecker = () => {
                 return (
                   <div
                     key={id}
-                    className="flex items-center gap-3 bg-[#0d0d14] rounded-xl px-3 py-2.5 border border-gray-800/80"
+                    className="flex items-center gap-3 bg-gray-50 rounded-xl px-3 py-2.5 border border-gray-300"
                   >
                     <span className="text-base flex-shrink-0 w-6 text-center">{icon}</span>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5 flex-wrap">
-                        <p className="text-xs text-gray-200 font-semibold leading-tight">{label}</p>
+                        <p className="text-xs text-gray-900 font-semibold leading-tight">{label}</p>
                         {badge && (
-                          <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-gray-800 text-gray-500 border border-gray-700 leading-none">
+                          <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-gray-200 text-gray-700 border border-gray-300 leading-none">
                             {badge}
                           </span>
                         )}
@@ -289,7 +289,7 @@ const PasswordChecker = () => {
                 { dot: 'bg-yellow-400',  label: 'Moderate' },
                 { dot: 'bg-emerald-400', label: 'Safe'     },
               ].map(({ dot, label }) => (
-                <span key={label} className="flex items-center gap-1.5 text-[10px] text-gray-600 font-mono">
+                <span key={label} className="flex items-center gap-1.5 text-[10px] text-gray-700 font-mono">
                   <span className={`w-1.5 h-1.5 rounded-full ${dot}`} />
                   {label}
                 </span>

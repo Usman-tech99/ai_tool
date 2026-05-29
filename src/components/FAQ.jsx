@@ -69,25 +69,25 @@ const FAQ = () => {
   return (
     <section className="max-w-4xl mx-auto w-full px-3 sm:px-5 lg:px-8 py-16 sm:py-20">
       <div className="mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 tracking-tight">
           Frequently Asked Questions
         </h2>
-        <p className="text-gray-400 text-sm sm:text-base">
+        <p className="text-gray-600 text-sm sm:text-base">
           Common questions about password security, strength analysis, and best practices.
         </p>
       </div>
 
       <div className="space-y-4">
         {faqs.map((faq, idx) => (
-          <div key={idx} className="bg-[#111118] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-colors">
+          <div key={idx} className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-cyan-400 transition-colors">
             <button
               onClick={() => setOpenId(openId === idx ? null : idx)}
-              className="w-full px-6 sm:px-8 py-4 flex items-center justify-between text-left hover:bg-[#15151c] transition-colors"
+              className="w-full px-6 sm:px-8 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
             >
-              <h3 className="text-base sm:text-lg font-semibold text-white pr-4">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900 pr-4">
                 {faq.question}
               </h3>
-              <span className={`text-cyan-400 text-2xl font-light transition-transform flex-shrink-0 ${
+              <span className={`text-cyan-600 text-2xl font-light transition-transform flex-shrink-0 ${
                 openId === idx ? 'rotate-180' : ''
               }`}>
                 ⌄
@@ -95,8 +95,8 @@ const FAQ = () => {
             </button>
 
             {openId === idx && (
-              <div className="px-6 sm:px-8 py-4 border-t border-gray-800/60 bg-[#0d0d14]/50">
-                <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
+              <div className="px-6 sm:px-8 py-4 border-t border-gray-200 bg-gray-50">
+                <p className="text-gray-800 leading-relaxed text-sm sm:text-base">
                   {faq.answer}
                 </p>
               </div>
@@ -105,16 +105,16 @@ const FAQ = () => {
         ))}
       </div>
 
-      <div className="mt-12 bg-gradient-to-r from-cyan-600/10 to-blue-600/10 border border-cyan-500/20 rounded-2xl p-8 sm:p-12">
-        <h3 className="text-xl font-bold text-white mb-3">Didn't find your answer?</h3>
-        <p className="text-gray-400 mb-6">
+      <div className="mt-12 bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-2xl p-8 sm:p-12">
+        <h3 className="text-xl font-bold text-gray-900 mb-3">Didn't find your answer?</h3>
+        <p className="text-gray-700 mb-6">
           Check out our security blog for in-depth articles on password entropy, attack methods, and best practices. Or contact us through the contact page with your questions.
         </p>
         <div className="flex gap-3">
           <button className="px-6 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg font-semibold transition-colors">
             Read Our Blog
           </button>
-          <button className="px-6 py-2 border border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 rounded-lg font-semibold transition-colors">
+          <button className="px-6 py-2 border border-cyan-400 text-cyan-700 hover:bg-cyan-50 rounded-lg font-semibold transition-colors">
             Contact Us
           </button>
         </div>

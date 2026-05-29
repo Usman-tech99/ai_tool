@@ -41,22 +41,22 @@ const VisitorCounter = () => {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 bg-gradient-to-br from-cyan-600/20 to-blue-600/20 border border-cyan-500/40 rounded-full px-4 py-3 backdrop-blur-sm hover:border-cyan-400/60 transition-all duration-300 group">
+    <div className="fixed bottom-6 right-6 bg-gradient-to-br from-cyan-100/40 to-blue-100/40 border border-cyan-400/60 rounded-full px-4 py-3 backdrop-blur-sm hover:border-cyan-500/80 transition-all duration-300 group">
       <div className="flex items-center gap-2 text-xs sm:text-sm font-mono">
         <span className={`inline-flex items-center justify-center w-3 h-3 rounded-full ${
           error ? 'bg-orange-500' : 'bg-emerald-500 animate-pulse'
         }`} />
-        <span className="text-gray-300 whitespace-nowrap">
+        <span className="text-gray-700 whitespace-nowrap">
           {loading ? (
             <span className="text-gray-500">Loading...</span>
           ) : (
             <>
-              <span className="text-cyan-300 font-bold">{formatNumber(visitorCount)}</span>
-              <span className="text-gray-500 ml-1">visitor{visitorCount !== 1 ? 's' : ''}</span>
+              <span className="text-cyan-700 font-bold">{formatNumber(visitorCount)}</span>
+              <span className="text-gray-600 ml-1">visitor{visitorCount !== 1 ? 's' : ''}</span>
             </>
           )}
         </span>
-        <div className="opacity-0 group-hover:opacity-100 transition-opacity ml-2 text-xs text-gray-400 whitespace-nowrap">
+        <div className="opacity-0 group-hover:opacity-100 transition-opacity ml-2 text-xs text-gray-600 whitespace-nowrap">
           You are here
         </div>
       </div>
