@@ -5,6 +5,239 @@ const blogPosts = [
     id: 1,
     category: 'Security Tips',
     categoryColor: 'cyan',
+    title: 'Why Password Security Matters Today',
+    excerpt: 'Learn why strong, unique passwords are your first defense against cyber threats and how to build your security foundation.',
+    date: 'May 25, 2026',
+    content: `Strong passwords are your foundation for cybersecurity in 2026. This guide covers everything you need to know about password security.
+
+## Why Passwords Matter
+
+Passwords protect your email, banking, social media, and sensitive data. A weak password puts everything at risk.
+
+## Key Recommendations
+
+- Use 16+ character passwords
+- Make them unique for each account  
+- Never reuse passwords
+- Use a password manager to store them
+- Enable two-factor authentication
+
+## Getting Started
+
+Start with our password generator to create secure passwords today.`
+  },
+  {
+    id: 2,
+    category: 'Best Practices',
+    categoryColor: 'emerald',
+    title: 'The 16-Character Rule',
+    excerpt: 'Security experts recommend 16+ characters. Here\'s why length is more important than complexity.',
+    date: 'May 24, 2026',
+    content: `Password length provides exponential security. Here's the science behind the 16-character recommendation.
+
+## The Math Behind Password Length
+
+- 8 characters: Weak, can be cracked in hours
+- 12 characters: Moderate, cracked in months  
+- 16 characters: Strong, would take 200+ years to crack
+- 20 characters: Very strong, takes 200,000+ years
+
+## Why 16 is the Sweet Spot
+
+16 characters balances security and practicality:
+- Strong enough for critical accounts
+- Practical to generate with tools
+- Resistant to GPU attacks
+- Immune to AI pattern recognition
+
+## Implementation
+
+Use a password manager to store 16+ character random passwords for all accounts.`
+  },
+  {
+    id: 3,
+    category: 'Threat Analysis',
+    categoryColor: 'orange',
+    title: 'Understanding Attack Types',
+    excerpt: 'Learn the difference between online, offline, and AI-powered password attacks.',
+    date: 'May 23, 2026',
+    content: `Different attackers use different strategies. Understanding these threat models helps you choose appropriate passwords.
+
+## Online Attacks
+
+- Limited to 100 attempts per second by account lockout
+- Even weak passwords are protected
+- This is the lowest threat level
+
+## Offline Hash Attacks
+
+- Attackers have stolen password hashes
+- Can attempt billions of guesses per second
+- This is where 16+ characters matters
+- Weak passwords crack in days/weeks
+
+## AI Pattern Recognition
+
+- Neural networks trained on billions of leaked passwords
+- Attempts "smart guesses" based on human patterns
+- Truly random passwords resist these attacks
+- Predictable passwords (Password123!) crack easily
+
+## Protection Strategy
+
+Use a password manager to generate truly random 16+ character passwords for every account.`
+  }
+]
+
+const Blog = ({ isDark }) => {
+  const [selectedPost, setSelectedPost] = useState(null)
+  const [email, setEmail] = useState('')
+  const [subscriptionMessage, setSubscriptionMessage] = useState('')
+
+  const handleSubscribe = () => {
+    if (!email || !email.includes('@')) {
+      setSubscriptionMessage('Please enter a valid email')
+      setTimeout(() => setSubscriptionMessage(''), 3000)
+      return
+    }
+    
+    setSubscriptionMessage('✓ Thank you for subscribing!')
+    setEmail('')
+    setTimeout(() => setSubscriptionMessage(''), 3000)
+  }
+
+  if (selectedPost) {
+    return (
+      <section className={`max-w-4xl mx-auto w-full px-3 sm:px-5 lg:px-8 py-16 sm:py-20 transition-colors duration-300 ${isDark ? 'text-gray-200' : 'text-gray-900'}`}>
+        <button
+          onClick={() => setSelectedPost(null)}
+          className={`flex items-center gap-2 transition-colors mb-6 font-semibold ${isDark ? 'text-cyan-400 hover:text-cyan-300' : 'text-cyan-600 hover:text-cyan-700'}`}
+        >
+          ← Back to Blog
+        </button>
+
+        <article className={`border rounded-2xl p-8 sm:p-12 transition-colors duration-300 ${isDark ? 'bg-[#111118] border-gray-800' : 'bg-white border-gray-200'}`}>
+          <h1 className={`text-4xl sm:text-5xl font-bold mb-4 tracking-tight transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            {selectedPost.title}
+          </h1>
+
+          <div className={`flex items-center gap-4 text-sm mb-8 pb-8 border-b transition-colors duration-300 ${isDark ? 'text-gray-500 border-gray-800' : 'text-gray-600 border-gray-300'}`}>
+            <span>{selectedPost.date}</span>
+            <span>•</span>
+            <span>5 min read</span>
+          </div>
+
+          <div className={`max-w-none space-y-6 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-800'}`}>
+            {selectedPost.content.split('\n\n').map((paragraph, idx) => {
+              if (paragraph.startsWith('##')) {
+                return (
+                  <h2 key={idx} className={`text-2xl font-bold mt-8 mb-4 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                    {paragraph.replace('## ', '')}
+                  </h2>
+                )
+              }
+              if (paragraph.startsWith('-')) {
+                return (
+                  <ul key={idx} className="list-disc list-inside space-y-2">
+                    {paragraph.split('\n').map((item, lidx) => (
+                      <li key={lidx} className="ml-4">
+                        {item.replace('- ', '')}
+                      </li>
+                    ))}
+                  </ul>
+                )
+              }
+              return (
+                <p key={idx} className="leading-relaxed">
+                  {paragraph}
+                </p>
+              )
+            })}
+          </div>
+        </article>
+      </section>
+    )
+  }
+
+  return (
+    <section className={`max-w-4xl mx-auto w-full px-3 sm:px-5 lg:px-8 py-16 sm:py-20 transition-colors duration-300 ${isDark ? 'text-gray-200' : 'text-gray-900'}`}>
+      <div className="mb-12">
+        <h2 className={`text-3xl sm:text-4xl font-bold mb-3 tracking-tight transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+          Security Blog
+        </h2>
+        <p className={`text-sm sm:text-base transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+          Expert insights on password security and best practices.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {blogPosts.map((post) => (
+          <article key={post.id} className={`border rounded-2xl p-6 transition-all duration-300 group hover:border-cyan-400 ${isDark ? 'bg-[#111118] border-gray-800' : 'bg-white border-gray-200'}`}>
+            <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 group-hover:text-cyan-400 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+              {post.title}
+            </h3>
+            <p className={`text-sm leading-relaxed mb-4 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-700'}`}>
+              {post.excerpt}
+            </p>
+            <div className={`flex items-center justify-between text-xs transition-colors duration-300 ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>
+              <span>{post.date}</span>
+              <button
+                onClick={() => setSelectedPost(post)}
+                className={`transition-colors font-semibold ${isDark ? 'text-cyan-400 hover:text-cyan-300' : 'text-cyan-600 hover:text-cyan-700'}`}
+              >
+                Read →
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className={`mt-16 border rounded-2xl p-8 sm:p-12 transition-colors duration-300 ${isDark ? 'bg-cyan-600/10 border-cyan-500/40' : 'bg-gradient-to-r from-cyan-50 to-blue-50 border-cyan-200'}`}>
+        <h3 className={`text-2xl font-bold mb-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+          Stay Updated
+        </h3>
+        <p className={`mb-6 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          Get security tips delivered to your inbox.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && handleSubscribe()}
+            className={`flex-1 rounded-lg px-4 py-3 focus:outline-none focus:ring-1 transition-all duration-300 ${
+              isDark
+                ? 'bg-[#0d0d14] border border-gray-700 text-white placeholder-gray-600 focus:border-cyan-500/60 focus:ring-cyan-500/30'
+                : 'bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:border-cyan-500 focus:ring-cyan-400/50'
+            }`}
+          />
+          <button
+            onClick={handleSubscribe}
+            className="bg-cyan-600 hover:bg-cyan-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors whitespace-nowrap"
+          >
+            Subscribe
+          </button>
+        </div>
+        {subscriptionMessage && (
+          <p className={`mt-3 text-sm font-semibold transition-all ${
+            subscriptionMessage.includes('Thank') 
+              ? isDark ? 'text-emerald-400' : 'text-emerald-600'
+              : isDark ? 'text-orange-400' : 'text-orange-600'
+          }`}>
+            {subscriptionMessage}
+          </p>
+        )}
+      </div>
+    </section>
+  )
+}
+
+export default Blog
+  {
+    id: 1,
+    category: 'Security Tips',
+    categoryColor: 'cyan',
     title: 'Why AI Crack Analysis Matters for Your Passwords',
     excerpt: 'Traditional password strength meters only account for brute-force attacks. But modern threats use AI and pattern recognition. Learn how our neural network analysis simulates real-world AI attacks to give you accurate crack time estimates.',
     date: 'May 25, 2026',
