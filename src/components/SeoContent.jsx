@@ -187,5 +187,3 @@ const SeoContent = ({ isDark }) => {
   </section>
   )
 }
-
-export default SeoContent
