@@ -1,5 +1,6 @@
 const SeoContent = ({ isDark }) => {
-  <section className="mt-8 sm:mt-12 lg:mt-16 max-w-4xl mx-auto w-full px-3 sm:px-5 lg:px-8 pb-10 sm:pb-16">
+  return (
+    <section className="mt-8 sm:mt-12 lg:mt-16 max-w-4xl mx-auto w-full px-3 sm:px-5 lg:px-8 pb-10 sm:pb-16">
     <div className="bg-gray-50 border border-gray-200 rounded-2xl p-5 sm:p-8 md:p-10">
       <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5 tracking-tight">
         The Importance of Secure Passwords
@@ -184,6 +185,7 @@ const SeoContent = ({ isDark }) => {
       </p>
     </div>
   </section>
-)
+  )
+}
 
 export default SeoContent
