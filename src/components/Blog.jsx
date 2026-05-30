@@ -234,9 +234,6 @@ const Blog = ({ isDark }) => {
 }
 
 export default Blog
-  {
-    id: 1,
-    category: 'Security Tips',
     categoryColor: 'cyan',
     title: 'Why AI Crack Analysis Matters for Your Passwords',
     excerpt: 'Traditional password strength meters only account for brute-force attacks. But modern threats use AI and pattern recognition. Learn how our neural network analysis simulates real-world AI attacks to give you accurate crack time estimates.',
