@@ -17,7 +17,7 @@ const calcStrength = (password, opts) => {
   return Math.min(score, 3)
 }
 
-const PasswordGenerator = () => {
+const PasswordGenerator = ({ isDark }) => {
   const [length, setLength] = useState(16)
   const [options, setOptions] = useState({
     uppercase: true,
@@ -72,20 +72,28 @@ const PasswordGenerator = () => {
   ]
 
   return (
-    <div className="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg w-full">
-      <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 tracking-tight">
+    <div className={`border rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg w-full transition-all duration-300 ${
+      isDark
+        ? 'bg-[#111118] border-gray-800 shadow-black/30'
+        : 'bg-white border-gray-200'
+    }`}>
+      <h2 className={`text-lg sm:text-xl font-bold mb-1 tracking-tight transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
         Password Generator
       </h2>
-      <p className="text-xs sm:text-sm text-gray-600 mb-4 sm:mb-6">
-        Customize options and hit <span className="text-cyan-600 font-semibold">Generate</span>.
+      <p className={`text-xs sm:text-sm mb-4 sm:mb-6 transition-colors duration-300 ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>
+        Customize options and hit <span className={`font-semibold ${isDark ? 'text-cyan-400' : 'text-cyan-600'}`}>Generate</span>.
       </p>
 
       {/* Password display */}
       <div className="mb-4 sm:mb-6">
-        <div className="bg-gray-50 border border-gray-300 rounded-xl px-3 sm:px-4 py-3 sm:py-4 min-h-[56px] flex items-center overflow-hidden w-full">
-          <span className="font-mono text-sm sm:text-base md:text-lg text-emerald-700 break-all tracking-wider leading-relaxed w-full">
+        <div className={`border rounded-xl px-3 sm:px-4 py-3 sm:py-4 min-h-[56px] flex items-center overflow-hidden w-full transition-all duration-300 ${
+          isDark
+            ? 'bg-[#0d0d14] border-gray-700'
+            : 'bg-gray-50 border-gray-300'
+        }`}>
+          <span className={`font-mono text-sm sm:text-base md:text-lg break-all tracking-wider leading-relaxed w-full transition-colors duration-300 ${isDark ? 'text-emerald-300' : 'text-emerald-700'}`}>
             {password || (
-              <span className="text-gray-500 italic text-xs sm:text-sm">Click Generate…</span>
+              <span className={`italic text-xs sm:text-sm ${isDark ? 'text-gray-600' : 'text-gray-500'}`}>Click Generate…</span>
             )}
           </span>
         </div>
@@ -96,7 +104,11 @@ const PasswordGenerator = () => {
             mt-2 w-full py-2 sm:py-2.5 rounded-lg text-xs font-semibold font-mono uppercase tracking-widest
             transition-all duration-200
             ${copied
-              ? 'bg-emerald-100 text-emerald-700 border border-emerald-300'
+              ? isDark
+                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
+                : 'bg-emerald-100 text-emerald-700 border border-emerald-300'
+              : isDark
+              ? 'bg-cyan-600/20 text-cyan-300 border border-cyan-500/30 hover:bg-cyan-600/40 hover:border-cyan-400'
               : 'bg-cyan-100 text-cyan-700 border border-cyan-300 hover:bg-cyan-200 hover:border-cyan-400'}
           `}
         >
@@ -110,8 +122,8 @@ const PasswordGenerator = () => {
       {/* Length slider */}
       <div className="mt-6">
         <div className="flex justify-between items-center mb-3">
-          <label className="text-sm text-gray-700 font-medium">Length</label>
-          <span className="font-mono text-cyan-600 font-bold text-lg w-10 text-right">
+          <label className={`text-sm font-medium transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>Length</label>
+          <span className={`font-mono font-bold text-lg w-10 text-right transition-colors duration-300 ${isDark ? 'text-cyan-300' : 'text-cyan-600'}`}>
             {length}
           </span>
         </div>
@@ -121,9 +133,9 @@ const PasswordGenerator = () => {
           max={64}
           value={length}
           onChange={(e) => setLength(Number(e.target.value))}
-          className="w-full accent-cyan-600"
+          className={`w-full transition-colors duration-300 ${isDark ? 'accent-cyan-600' : 'accent-cyan-600'}`}
         />
-        <div className="flex justify-between text-[11px] text-gray-700 font-mono mt-1">
+        <div className={`flex justify-between text-[11px] font-mono mt-1 transition-colors duration-300 ${isDark ? 'text-gray-600' : 'text-gray-700'}`}>
           <span>8</span>
           <span>64</span>
         </div>
@@ -138,7 +150,11 @@ const PasswordGenerator = () => {
               flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl border cursor-pointer
               transition-all duration-150 select-none
               ${options[key]
-                ? 'border-cyan-400 bg-cyan-50 text-gray-900'
+                ? isDark
+                  ? 'border-cyan-500/50 bg-cyan-600/10 text-gray-200'
+                  : 'border-cyan-400 bg-cyan-50 text-gray-900'
+                : isDark
+                ? 'border-gray-700 bg-gray-900/40 text-gray-500 hover:border-gray-600'
                 : 'border-gray-300 bg-gray-50 text-gray-600 hover:border-gray-400'}
             `}
           >
@@ -146,7 +162,7 @@ const PasswordGenerator = () => {
               type="checkbox"
               checked={options[key]}
               onChange={() => toggleOption(key)}
-              className="flex-shrink-0 accent-cyan-600"
+              className={`flex-shrink-0 ${isDark ? 'accent-cyan-600' : 'accent-cyan-600'}`}
             />
             <span className="text-xs sm:text-sm font-mono truncate">{label}</span>
           </label>
@@ -161,9 +177,11 @@ const PasswordGenerator = () => {
           bg-gradient-to-r from-cyan-600 to-blue-600
           hover:from-cyan-500 hover:to-blue-500
           active:scale-[0.98]
-          text-white shadow-lg shadow-cyan-400/30
-          transition-all duration-200
+          text-white transition-all duration-200
         "
+        style={{
+          boxShadow: isDark ? '0 0 20px rgba(6, 182, 212, 0.3)' : '0 0 15px rgba(6, 182, 212, 0.2)'
+        }}
       >
         ⚡ Generate Password
       </button>

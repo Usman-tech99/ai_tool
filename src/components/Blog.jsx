@@ -991,7 +991,7 @@ Start using cyberaipulse's generator today for maximum security with zero server
   }
 ]
 
-const Blog = () => {
+const Blog = ({ isDark }) => {
   const [selectedPost, setSelectedPost] = useState(null)
   const [email, setEmail] = useState('')
   const [subscriptionMessage, setSubscriptionMessage] = useState('')

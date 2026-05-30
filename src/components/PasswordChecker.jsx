@@ -51,7 +51,7 @@ const STRENGTH = [
 ]
 
 /* ════════════════════════════════════════════════════ */
-const PasswordChecker = () => {
+const PasswordChecker = ({ isDark }) => {
   const [password, setPassword] = useState('')
   const [visible, setVisible] = useState(false)
 
@@ -108,15 +108,19 @@ const PasswordChecker = () => {
   const strength = analysis ? STRENGTH[analysis.score] : null
 
   return (
-    <div className="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg w-full h-full">
+    <div className={`border rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg w-full h-full transition-all duration-300 ${
+      isDark
+        ? 'bg-[#111118] border-gray-800 shadow-black/30'
+        : 'bg-white border-gray-200'
+    }`}>
 
       {/* Header */}
-      <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 tracking-tight">
+      <h2 className={`text-lg sm:text-xl font-bold mb-1 tracking-tight transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
         Password Checker
       </h2>
-      <p className="text-xs sm:text-sm text-gray-600 mb-4 sm:mb-6">
+      <p className={`text-xs sm:text-sm mb-4 sm:mb-6 transition-colors duration-300 ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>
         See how fast an attacker — or an{' '}
-        <span className="text-cyan-600 font-semibold">AI</span> — would crack it.
+        <span className={`font-semibold ${isDark ? 'text-cyan-400' : 'text-cyan-600'}`}>AI</span> — would crack it.
       </p>
 
       {/* Input */}
@@ -126,17 +130,18 @@ const PasswordChecker = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Type or paste a password…"
-          className="
-            w-full bg-gray-50 border border-gray-300 rounded-xl
-            px-4 py-3 pr-12
-            font-mono text-sm sm:text-base text-gray-900 placeholder-gray-500
-            focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-400/50
-            transition-all duration-200
-          "
+          className={`
+            w-full border rounded-xl px-4 py-3 pr-12 font-mono text-sm sm:text-base
+            transition-all duration-300
+            ${isDark
+              ? 'bg-[#0d0d14] border-gray-700 text-white placeholder-gray-600 focus:border-cyan-500/60 focus:ring-1 focus:ring-cyan-500/30'
+              : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-400/50'}
+            focus:outline-none
+          `}
         />
         <button
           onClick={() => setVisible((v) => !v)}
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-900 transition-colors"
+          className={`absolute right-3 top-1/2 -translate-y-1/2 transition-colors ${isDark ? 'text-gray-500 hover:text-gray-300' : 'text-gray-600 hover:text-gray-900'}`}
           aria-label="Toggle visibility"
         >
           {visible ? (
@@ -154,11 +159,11 @@ const PasswordChecker = () => {
 
       {/* Empty state */}
       {!analysis && (
-        <div className="flex flex-col items-center justify-center py-10 sm:py-16 text-gray-400">
-          <svg className="w-10 h-10 mb-3 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className={`flex flex-col items-center justify-center py-10 sm:py-16 transition-colors duration-300 ${isDark ? 'text-gray-700' : 'text-gray-400'}`}>
+          <svg className={`w-10 h-10 mb-3 opacity-30`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
           </svg>
-          <p className="text-sm font-mono opacity-50">Awaiting input…</p>
+          <p className={`text-sm font-mono opacity-50`}>Awaiting input…</p>
         </div>
       )}
 
