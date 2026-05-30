@@ -71,7 +71,7 @@ const App = () => {
               alt="cyberaipulse Logo"
               className="h-9 sm:h-10 w-auto object-contain"
             />
-            <div className="text-lg sm:text-xl font-bold">
+            <div className="text-lg sm:text-xl font-bold" style={{ fontFamily: "'Space Mono', monospace" }}>
               <span className="text-cyan-400">Cyberai</span><span className={isDark ? 'text-white' : 'text-gray-900'}>Pulse</span>
             </div>
           </div>
