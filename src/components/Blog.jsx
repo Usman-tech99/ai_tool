@@ -632,12 +632,8 @@ The mathematics of entropy reveal a simple truth: truly strong passwords are too
 SMS-based 2FA is better than no 2FA, but it's not a modern security best practice. Authenticator apps are free, easy, and dramatically more secure. For your most sensitive accounts, hardware security keys provide unmatched protection. The hierarchy is clear: Hardware keys > Authenticator apps > Email > SMS. Choose accordingly based on account importance.`
   }
 ]
-  },
-  {
-    id: 2,
-    category: 'Best Practices',
-    categoryColor: 'emerald',
-    title: 'The 16-Character Rule: Why Length Matters Most',
+
+const Blog = ({ isDark }) => {
     excerpt: 'Discover why security experts recommend 16+ character passwords. We break down the mathematics of entropy and show you how adding just a few characters can increase crack time from hours to centuries.',
     date: 'May 24, 2026',
     content: `Password length is your strongest defense against modern cracking attempts. But how many characters is "enough"? Security experts consistently recommend 16 characters as the minimum for important accounts. Here's why.
