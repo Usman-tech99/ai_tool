@@ -3,7 +3,6 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import PasswordGenerator from './components/PasswordGenerator'
 import PasswordChecker from './components/PasswordChecker'
-import SeoContent from './components/SeoContent'
 import Blog from './components/Blog'
 import FAQ from './components/FAQ'
 import Privacy from './components/Privacy'
@@ -171,11 +170,6 @@ const App = () => {
 
             </div>
           </main>
-
-          {/* ── SEO Content ── */}
-          <div id="learn" data-aos="fade-up" data-aos-delay="500">
-            <SeoContent isDark={isDark} />
-          </div>
 
           {/* ── Blog ── */}
           <div id="blog" className={`border-t transition-colors duration-300 ${isDark ? 'border-gray-800/60' : 'border-gray-200'}`} data-aos="fade-up" data-aos-delay="600">
