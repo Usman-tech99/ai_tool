@@ -1,190 +1,160 @@
-const SeoContent = ({ isDark }) => {
+import { Link } from 'react-router-dom'
+import { useTheme } from '../context/ThemeContext'
+
+const SeoContent = ({ isDark: propsDark }) => {
+  const { isDark: contextDark } = useTheme()
+  const isDark = propsDark !== undefined ? propsDark : contextDark
+
   return (
     <section className="mt-8 sm:mt-12 lg:mt-16 max-w-4xl mx-auto w-full px-3 sm:px-5 lg:px-8 pb-10 sm:pb-16">
-    <div className="bg-gray-50 border border-gray-200 rounded-2xl p-5 sm:p-8 md:p-10">
-      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5 tracking-tight">
-        The Importance of Secure Passwords
-      </h2>
+      <div className={`border rounded-2xl p-5 sm:p-8 md:p-10 transition-colors duration-300 ${isDark ? 'bg-gray-900/50 border-gray-800' : 'bg-gray-50 border-gray-200'}`}>
+        <h2 className={`text-2xl md:text-3xl font-bold mb-5 tracking-tight transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+          Free Online Password Generator & Strength Checker
+        </h2>
+        <p className={`leading-relaxed mb-5 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          Welcome to <strong className={isDark ? 'text-white' : 'text-gray-900'}>CyberaiPulse</strong>, a completely free and privacy-focused online password generator and password strength checker. Our tool helps you create cryptographically secure passwords that resist brute-force attacks, GPU-accelerated hash cracking, and AI-powered pattern recognition. Whether you need a <strong className={isDark ? 'text-white' : 'text-gray-900'}>strong password generator</strong> for your email, banking, or social media accounts, or a <strong className={isDark ? 'text-white' : 'text-gray-900'}>password strength checker</strong> to evaluate your existing passwords, CyberaiPulse provides enterprise-grade security entirely in your browser with zero server-side storage.
+        </p>
+        <p className={`leading-relaxed mb-5 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          Unlike many online password generators that send your data across the internet, our <strong className={isDark ? 'text-white' : 'text-gray-900'}>random password generator</strong> uses your browser's native <code className={`px-2 py-0.5 rounded font-mono text-sm ${isDark ? 'bg-gray-800 text-emerald-300' : 'bg-gray-200 text-emerald-700'}`}>crypto.getRandomValues()</code> API to generate truly unpredictable passwords. Your passwords never leave your device, ensuring complete privacy and security.
+        </p>
 
-      <p className="text-gray-700 leading-relaxed mb-5">
-        In today's hyper-connected digital landscape, a strong password is your first and most
-        critical line of defense against unauthorized access. Cybercriminals use sophisticated
-        tools — including brute-force attacks, dictionary attacks, credential-stuffing bots,
-        AI-powered pattern recognition, and GPU-accelerated hash cracking — that can compromise
-        weak passwords in seconds. Yet despite widespread awareness of security threats, millions
-        of people continue to use dangerously predictable passwords that violate fundamental
-        security principles.
-      </p>
+        <h3 className={`text-lg font-semibold mb-3 mt-6 transition-colors duration-300 ${isDark ? 'text-cyan-300' : 'text-cyan-700'}`}>
+          What Makes a Strong Password?
+        </h3>
+        <p className={`leading-relaxed mb-4 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          Creating a <strong className={isDark ? 'text-white' : 'text-gray-900'}>secure password</strong> requires understanding how modern attackers crack passwords. Our free online password generator creates passwords that follow these security principles:
+        </p>
+        <ul className={`list-disc list-inside space-y-2 mb-5 leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>Length over complexity</strong> — A 16-character password provides exponentially more security than an 8-character one, even with special characters. Our password generator defaults to 16 characters, the recommended minimum for critical accounts.</li>
+          <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>True randomness</strong> — Human-created passwords follow predictable patterns that AI can learn. Our secure password generator uses cryptographic randomness that no pattern-detection algorithm can predict.</li>
+          <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>Unique per account</strong> — Reusing passwords across sites means a single data breach compromises all your accounts. Generate a unique strong password for every service you use.</li>
+          <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>Mixed character types</strong> — Combining uppercase letters, lowercase letters, numbers, and symbols dramatically increases the search space for attackers, making brute-force attacks impractical.</li>
+        </ul>
 
-      <h3 className="text-lg font-semibold text-cyan-600 mb-3 mt-6">
-        Why Passwords Matter Now More Than Ever
-      </h3>
-      <p className="text-gray-700 leading-relaxed mb-4">
-        Data breaches have reached epidemic proportions. In 2024 alone, billions of passwords
-        were stolen from major companies, healthcare providers, financial institutions, and
-        government agencies. When attackers gain access to password databases, they immediately
-        deploy GPU clusters to crack weak passwords offline, bypassing all rate-limiting protections.
-        A weak password that seems "safe enough" online becomes critically vulnerable the moment
-        that password database is breached.
-      </p>
+        <h3 className={`text-lg font-semibold mb-3 mt-6 transition-colors duration-300 ${isDark ? 'text-cyan-300' : 'text-cyan-700'}`}>
+          How Our AI Password Strength Checker Works
+        </h3>
+        <p className={`leading-relaxed mb-4 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          Most <strong className={isDark ? 'text-white' : 'text-gray-900'}>password strength checkers</strong> use simple entropy formulas that overestimate password security. Our <strong className={isDark ? 'text-white' : 'text-gray-900'}>AI-powered password analyzer</strong> uses the zxcvbn library, developed by Dropbox, which simulates how real attackers crack passwords. It checks against:
+        </p>
+        <ul className={`list-disc list-inside space-y-2 mb-5 leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          <li>30,000+ common passwords and leaked credentials</li>
+          <li>Common English words, names, and phrases from Wikipedia and US Census data</li>
+          <li>Keyboard patterns (qwerty, asdfgh) and repeating patterns</li>
+          <li>Common substitutions (P@ssw0rd, l33t speak) that AI pattern recognition targets</li>
+          <li>Date formats, sequences, and personal information patterns</li>
+        </ul>
+        <p className={`leading-relaxed mb-4 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          After analysis, our <strong className={isDark ? 'text-white' : 'text-gray-900'}>password checker</strong> provides estimated crack times for four attack scenarios: online rate-limited attacks, standard offline GPU cracking, high-end GPU cluster attacks, and worst-case AI neural network pattern matching. This gives you a realistic understanding of your password's security against current threats.
+        </p>
 
-      <h3 className="text-lg font-semibold text-cyan-600 mb-3 mt-6">
-        What Makes a Password Weak?
-      </h3>
-      <ul className="list-disc list-inside text-gray-700 space-y-2 mb-5 leading-relaxed">
-        <li>Short length — passwords under 12 characters are cracked almost instantly with modern GPU clusters.</li>
-        <li>Common words or phrases (e.g., <code className="text-emerald-700 font-mono text-sm">password</code>, <code className="text-emerald-700 font-mono text-sm">qwerty123</code>, <code className="text-emerald-700 font-mono text-sm">letmein</code>).</li>
-        <li>Personal information such as birthdays, names, pet names, or anniversary dates.</li>
-        <li>Reusing the same password across multiple websites and services — a single breach compromises all accounts.</li>
-        <li>Relying solely on lowercase letters with no numbers or special characters.</li>
-        <li>Predictable patterns like incrementing numbers (Password123, Password124) or keyboard walks (qwerty, asdfgh).</li>
-        <li>Sequential character substitutions that AI systems are trained to recognize (P@ssw0rd, p@55w0rd, etc.).</li>
-      </ul>
+        <h3 className={`text-lg font-semibold mb-3 mt-6 transition-colors duration-300 ${isDark ? 'text-cyan-300' : 'text-cyan-700'}`}>
+          Password Entropy Calculator: Understanding the Math
+        </h3>
+        <p className={`leading-relaxed mb-4 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          <strong className={isDark ? 'text-white' : 'text-gray-900'}>Password entropy</strong> is the mathematical measure of password strength. It represents how many guesses an attacker would need, on average, to crack your password. Our built-in entropy calculator displays this value for every password you generate or test. Higher entropy means stronger security:
+        </p>
+        <ul className={`list-disc list-inside space-y-2 mb-5 leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>40-50 bits</strong> (8-10 characters): Weak — vulnerable to GPU cracking within days</li>
+          <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>60-70 bits</strong> (12-14 characters): Moderate — adequate for low-risk accounts</li>
+          <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>80-100 bits</strong> (16-20 characters): Strong — resistant to GPU attacks for centuries</li>
+          <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>100+ bits</strong> (20+ characters): Very strong — effectively uncrackable with current technology</li>
+        </ul>
 
-      <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
-        Anatomy of a Strong Password
-      </h3>
-      <p className="text-gray-400 leading-relaxed mb-4">
-        A truly secure password combines <span className="text-white font-medium">length</span>,{' '}
-        <span className="text-white font-medium">randomness</span>, and{' '}
-        <span className="text-white font-medium">uniqueness</span>. Security experts and government
-        standards organizations (including NIST, the U.S. National Institute of Standards and
-        Technology) now recommend:
-      </p>
-      <ul className="list-disc list-inside text-gray-400 space-y-2 mb-5 leading-relaxed">
-        <li>A minimum of <strong className="text-white">16 characters</strong> for critical accounts like email and banking.</li>
-        <li>A minimum of <strong className="text-white">14 characters</strong> for important accounts like social media.</li>
-        <li>A minimum of <strong className="text-white">12 characters</strong> for casual accounts with low risk.</li>
-        <li>A mix of <strong className="text-white">uppercase and lowercase letters</strong>.</li>
-        <li>At least one <strong className="text-white">number</strong> and one <strong className="text-white">special symbol</strong> (e.g., <code className="text-emerald-400 font-mono text-sm">!@#$%^&*()</code>).</li>
-        <li>Completely <strong className="text-white">random</strong> — generated by a tool, not created by human imagination which is predictable.</li>
-        <li><strong className="text-white">Unique per account</strong> — <em>never</em> reused across sites, or even adapted slightly (Password1!, Password1@, etc.).</li>
-      </ul>
+        <h3 className={`text-lg font-semibold mb-3 mt-6 transition-colors duration-300 ${isDark ? 'text-cyan-300' : 'text-cyan-700'}`}>
+          Why Use a Free Online Password Generator?
+        </h3>
+        <p className={`leading-relaxed mb-4 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          Many people rely on memorable but weak passwords, putting their digital identity at risk. Using a <strong className={isDark ? 'text-white' : 'text-gray-900'}>free password generator</strong> like CyberaiPulse eliminates the weakest link in your security chain: human predictability. Our tool generates passwords that are:
+        </p>
+        <ul className={`list-disc list-inside space-y-2 mb-5 leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>Cryptographically secure</strong> — Uses the Web Crypto API, the same standard used by financial institutions and government agencies worldwide.</li>
+          <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>Completely private</strong> — Zero-knowledge architecture means your passwords never touch any server. Not even we can see them.</li>
+          <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>Instantly analyzed</strong> — Every generated password is automatically checked against our AI-powered strength analyzer to verify its security.</li>
+          <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>Customizable</strong> — Adjust length from 8 to 64 characters and choose which character types to include. Our <strong className={isDark ? 'text-white' : 'text-gray-900'}>password generator online</strong> gives you full control.</li>
+          <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>100% free</strong> — No account required, no hidden costs, no data collection. Just enterprise-grade password security for everyone.</li>
+        </ul>
 
-      <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
-        Understanding Encryption and Hash Functions
-      </h3>
-      <p className="text-gray-400 leading-relaxed mb-4">
-        When you create a password on a website, the server doesn't store your actual password.
-        Instead, it converts your password into a "hash" using a one-way mathematical function.
-        This hash is what gets stored in the database. When you log in, the server hashes your
-        input and compares it to the stored hash. If they match, you're granted access.
-      </p>
-      <p className="text-gray-400 leading-relaxed mb-4">
-        In a data breach where attackers steal the password database, they get the hashes, not
-        the original passwords. However, they can still crack passwords by: (1) using precomputed
-        hash tables for common passwords, (2) employing GPU clusters to compute billions of hashes
-        per second, or (3) using AI to intelligently guess likely password patterns before attempting
-        brute force. Strong passwords with 16+ characters resist all three approaches.
-      </p>
+        <h3 className={`text-lg font-semibold mb-3 mt-6 transition-colors duration-300 ${isDark ? 'text-cyan-300' : 'text-cyan-700'}`}>
+          Understanding Password Attack Types
+        </h3>
+        <p className={`leading-relaxed mb-4 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          To understand why a <strong className={isDark ? 'text-white' : 'text-gray-900'}>strong password generator</strong> is essential, you need to know how attackers operate. Our password checker simulates four distinct attack scenarios:
+        </p>
+        <p className={`leading-relaxed mb-4 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          <strong className={isDark ? 'text-white' : 'text-gray-900'}>Online attacks</strong> target live login pages. Servers limit attempts to about 100 per second and lock accounts after 5-10 failures. Even relatively weak passwords are usually safe from online attacks.
+        </p>
+        <p className={`leading-relaxed mb-4 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          <strong className={isDark ? 'text-white' : 'text-gray-900'}>Offline GPU attacks</strong> occur after a data breach. Attackers obtain password hashes and use graphics cards to try 10-100 billion guesses per second without rate limits. This is where password length becomes critical — a 16-character random password requires centuries to crack.
+        </p>
+        <p className={`leading-relaxed mb-4 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          <strong className={isDark ? 'text-white' : 'text-gray-900'}>AI pattern recognition</strong> represents the newest threat. Neural networks trained on billions of leaked passwords learn to predict human-created patterns, dramatically reducing the effective strength of predictable passwords. Truly random passwords from our generator resist these attacks entirely.
+        </p>
 
-      <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
-        Best Practices for Password Safety
-      </h3>
-      <p className="text-gray-400 leading-relaxed mb-4">
-        Generating a strong password is only half the battle. Protecting and managing your
-        passwords requires ongoing security habits and best practices:
-      </p>
-      <ul className="list-disc list-inside text-gray-400 space-y-2 mb-5 leading-relaxed">
-        <li>
-          <strong className="text-white">Use a Password Manager</strong> — Tools like Bitwarden (free and open-source),
-          1Password, KeePass, or Dashlane securely store all your passwords encrypted with military-grade
-          AES-256 encryption. You only need to remember one strong master password. Password managers sync
-          across devices and fill login forms automatically, eliminating the need to memorize or type passwords.
-        </li>
-        <li>
-          <strong className="text-white">Enable Two-Factor Authentication (2FA)</strong> — Adds an extra verification
-          layer so a stolen password alone cannot grant access. Use authenticator apps (Google Authenticator, Authy)
-          or hardware security keys (YubiKey), not SMS when possible (SMS is vulnerable to interception and SIM swapping).
-        </li>
-        <li>
-          <strong className="text-white">Change Passwords After Breaches</strong> — When a service notifies you of a data leak,
-          immediately change your password on that site. Check haveibeenpwned.com to find out if your email appears in known breaches.
-        </li>
-        <li>
-          <strong className="text-white">Monitor Your Email for Breach Notifications</strong> — Services like Troy Hunt's Have I Been Pwned
-          (haveibeenpwned.com) send alerts when your email appears in newly discovered breaches. Subscribe to these notifications.
-        </li>
-        <li>
-          <strong className="text-white">Avoid Reusing Passwords</strong> — Even slight variations (Password1, Password2, Password@) are vulnerable
-          to AI pattern recognition. Use a password manager to generate completely unique passwords for every account.
-        </li>
-        <li>
-          <strong className="text-white">Never Share Your Password</strong> — Legitimate organizations (banks, email providers, social networks)
-          never ask for passwords via email or phone. Any such request is phishing. Type your password directly into official websites only.
-        </li>
-      </ul>
+        <h3 className={`text-lg font-semibold mb-3 mt-6 transition-colors duration-300 ${isDark ? 'text-cyan-300' : 'text-cyan-700'}`}>
+          Password Security Best Practices
+        </h3>
+        <p className={`leading-relaxed mb-4 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          Our <strong className={isDark ? 'text-white' : 'text-gray-900'}>free online password checker</strong> helps you audit existing passwords, but long-term security requires good habits. Follow these best practices recommended by NIST and security experts:
+        </p>
+        <ul className={`list-disc list-inside space-y-2 mb-5 leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>Use a password manager</strong> — Tools like Bitwarden, 1Password, and KeePass securely store all your passwords with AES-256 encryption. You only need to remember one strong master password. Our generator can create that master password for you.</li>
+          <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>Enable two-factor authentication</strong> — Add a second layer of protection to critical accounts. Authenticator apps (Google Authenticator, Authy) are free and dramatically more secure than SMS-based 2FA, which is vulnerable to SIM swapping attacks.</li>
+          <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>Never reuse passwords</strong> — Each account needs a unique password. When one service is breached (and most eventually are), attackers immediately test stolen credentials on other platforms. This is called credential stuffing.</li>
+          <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>Monitor for breaches</strong> — Use services like Have I Been Pwned to receive notifications when your email appears in known data breaches. Our <Link to="/blog" className="text-cyan-400 hover:text-cyan-300 underline">security blog</Link> covers breach monitoring in detail.</li>
+        </ul>
 
-      <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
-        The Role of Artificial Intelligence in Password Cracking
-      </h3>
-      <p className="text-gray-400 leading-relaxed mb-4">
-        Traditional password strength calculators use simple entropy formulas that assume all character combinations
-        are equally likely. However, humans aren't random. We create passwords with predictable patterns. Modern
-        attackers use neural networks trained on billions of leaked passwords to recognize these patterns and guess
-        them first, before attempting brute force.
-      </p>
-      <p className="text-gray-400 leading-relaxed mb-4">
-        cyberaipulse's password checker uses similar AI analysis to evaluate passwords like real attackers do.
-        We don't just count bits of entropy—we analyze patterns humans typically create, allowing us to give you
-        realistic, practical password strength estimates rather than overly optimistic theoretical calculations.
-      </p>
+        <h3 className={`text-lg font-semibold mb-3 mt-6 transition-colors duration-300 ${isDark ? 'text-cyan-300' : 'text-cyan-700'}`}>
+          Client-Side Password Generation: Maximum Privacy
+        </h3>
+        <p className={`leading-relaxed mb-4 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          What sets CyberaiPulse apart from other <strong className={isDark ? 'text-white' : 'text-gray-900'}>online password generators</strong> is our commitment to privacy. All password generation and analysis happens client-side, in your browser. We use the <code className={`px-2 py-0.5 rounded font-mono text-sm ${isDark ? 'bg-gray-800 text-emerald-300' : 'bg-gray-200 text-emerald-700'}`}>crypto.getRandomValues()</code> API, which draws entropy from your operating system's random number generator — the same source used for SSH keys, TLS certificates, and disk encryption.
+        </p>
+        <p className={`leading-relaxed mb-4 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          This means:
+        </p>
+        <ul className={`list-disc list-inside space-y-2 mb-5 leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+          <li>Your passwords are never sent over the network</li>
+          <li>Your passwords are never stored on any server</li>
+          <li>No logs or analytics track what you generate</li>
+          <li>No account creation is required</li>
+          <li>Even we cannot access the passwords you create</li>
+        </ul>
 
-      <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
-        Attack Types and Why They Matter
-      </h3>
-      <p className="text-gray-400 leading-relaxed mb-4">
-        <strong className="text-white">Online Attacks (Rate-Limited):</strong> Attackers try passwords against live login pages.
-        Servers block accounts after 5-10 failed attempts, preventing brute force. This limits attackers to about 100 attempts per second.
-        Even weak passwords are protected from this attack type.
-      </p>
-      <p className="text-gray-400 leading-relaxed mb-4">
-        <strong className="text-white">Offline Hash Attacks (GPU-Accelerated):</strong> Attackers obtain stolen password hashes from breached databases.
-        Without account lockout limits, they can attempt 10-100 billion guesses per second using GPU clusters. This is where password length
-        matters critically. A 12-character password might be cracked in hours or days. A 16+ character password resists GPU attacks for centuries.
-      </p>
-      <p className="text-gray-400 leading-relaxed mb-4">
-        <strong className="text-white">AI-Guided Pattern Attacks:</strong> Sophisticated attackers use neural networks to intelligently guess passwords,
-        starting with patterns humans commonly create. This reduces the effective strength of human-created passwords but has minimal impact on
-        truly random, long passwords generated by tools.
-      </p>
+        <h3 className={`text-lg font-semibold mb-3 mt-6 transition-colors duration-300 ${isDark ? 'text-cyan-300' : 'text-cyan-700'}`}>
+          Frequently Asked Questions About Password Security
+        </h3>
 
-      <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
-        Why Length is More Important Than Complexity
-      </h3>
-      <p className="text-gray-400 leading-relaxed mb-4">
-        Many organizations mandate complex passwords: uppercase, lowercase, numbers, and symbols. This often makes passwords weaker, not stronger.
-        Users forced to include complexity often create predictable patterns: capitalizing the first letter, placing numbers at the end,
-        appending a symbol—exactly what attackers expect.
-      </p>
-      <p className="text-gray-400 leading-relaxed mb-4">
-        Research shows that length provides exponential security improvement. A 20-character password using only lowercase letters is far more
-        secure than a 12-character password with maximum complexity, because each additional character multiplies attack time. A passphrase like
-        "correct-horse-battery-staple" (25 lowercase characters) has 115 bits of entropy and would take 50,000 years to crack with a GPU cluster,
-        despite using no special characters.
-      </p>
+        <div className={`rounded-lg p-4 mb-4 transition-colors duration-300 ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
+          <h4 className={`font-semibold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>How long should my password be?</h4>
+          <p className={`text-sm leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Security experts and NIST recommend 16 characters as the minimum for critical accounts like email and banking. Our free password generator defaults to 16 characters. For maximum security, use 20+ character passwords generated by a secure password creator.</p>
+        </div>
 
-      <h3 className="text-lg font-semibold text-cyan-300 mb-3 mt-6">
-        Server-Side vs. Client-Side Security
-      </h3>
-      <p className="text-gray-400 leading-relaxed mb-4">
-        cyberaipulse operates entirely on your device using your browser's <code className="text-emerald-400 font-mono text-sm">crypto.getRandomValues()</code> API—
-        the same cryptographic standard used by financial institutions and government agencies. This means:
-      </p>
-      <ul className="list-disc list-inside text-gray-400 space-y-2 mb-5 leading-relaxed">
-        <li>Your passwords are never transmitted to any server</li>
-        <li>Your passwords are never stored anywhere except where you choose (your password manager, your device)</li>
-        <li>Even cyberaipulse developers cannot see or access the passwords you generate or test</li>
-        <li>No account creation or login required—complete anonymity</li>
-      </ul>
+        <div className={`rounded-lg p-4 mb-4 transition-colors duration-300 ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
+          <h4 className={`font-semibold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>How does the AI password strength checker work?</h4>
+          <p className={`text-sm leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Our password analyzer uses the zxcvbn library to simulate real-world attack scenarios. It checks against dictionaries of common passwords, leaked credentials, keyboard patterns, and AI-detectable patterns to give you a realistic strength assessment rather than an overly optimistic entropy calculation.</p>
+        </div>
 
-      <p className="text-gray-500 leading-relaxed text-sm border-t border-gray-800 pt-5 mt-6">
-        Our password generator uses the browser's cryptographically secure random number generator, ensuring that every password
-        produced is truly unpredictable and resistant to statistical analysis. No passwords are ever transmitted to or stored on any
-        server. Your security remains entirely local to your device, giving you complete control and privacy.
-      </p>
-    </div>
-  </section>
+        <div className={`rounded-lg p-4 mb-4 transition-colors duration-300 ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
+          <h4 className={`font-semibold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>Can I use this password generator for business accounts?</h4>
+          <p className={`text-sm leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Yes. CyberaiPulse generates enterprise-grade cryptographically secure passwords suitable for any account, including business, government, and personal use. Our client-side architecture ensures sensitive corporate passwords never leave your device.</p>
+        </div>
+
+        <div className={`rounded-lg p-4 mb-4 transition-colors duration-300 ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
+          <h4 className={`font-semibold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>Is this better than using a password manager's generator?</h4>
+          <p className={`text-sm leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Our generator uses the same cryptographic standards as most password managers. Use it alongside a password manager — generate strong passwords here, store them in your password manager of choice. We recommend Bitwarden (free, open-source), 1Password, or KeePass.</p>
+        </div>
+
+        <div className={`rounded-lg p-4 mb-4 transition-colors duration-300 ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
+          <h4 className={`font-semibold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>What does the entropy score mean?</h4>
+          <p className={`text-sm leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Entropy measures password randomness in bits. Each bit doubles the number of guesses needed. A password with 80 bits of entropy requires 2^80 guesses — far beyond the capability of any current or foreseeable technology. Our password entropy calculator displays this value for every generated password.</p>
+        </div>
+
+        <p className={`leading-relaxed text-sm pt-5 mt-6 transition-colors duration-300 ${isDark ? 'text-gray-500 border-t border-gray-800' : 'text-gray-500 border-t border-gray-300'}`}>
+          CyberaiPulse is a comprehensive <strong className={isDark ? 'text-gray-300' : 'text-gray-700'}>password generator</strong> and <strong className={isDark ? 'text-gray-300' : 'text-gray-700'}>password strength checker</strong> designed for anyone who values their online security. Whether you are creating new accounts, updating old passwords after a data breach, or auditing your current password security, our <strong className={isDark ? 'text-gray-300' : 'text-gray-700'}>free online password generator</strong> provides the tools you need — with zero compromises on privacy. For more in-depth guides, visit our <Link to="/blog" className="text-cyan-400 hover:text-cyan-300 underline">security blog</Link> covering password entropy, multi-factor authentication, breach response, and other essential cybersecurity topics. Check our <Link to="/faq" className="text-cyan-400 hover:text-cyan-300 underline">FAQ page</Link> for common questions or <Link to="/contact" className="text-cyan-400 hover:text-cyan-300 underline">contact us</Link> for support.
+        </p>
+      </div>
+    </section>
   )
 }
 
