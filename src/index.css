@@ -11,7 +11,6 @@
     background-color: #0a0a0f;
     -webkit-text-size-adjust: 100%;
     overflow-x: hidden;
-    cursor: none;
   }
   * {
     box-sizing: border-box;
@@ -23,10 +22,6 @@
     @apply h-2 rounded-full transition-all duration-500 ease-in-out;
   }
 }
-
-/* ═══════════════════════════════════════════════════════════════ */
-/* ─── CUSTOM SECURITY CURSOR ─────────────────────────────────── */
-/* ═══════════════════════════════════════════════════════════════ */
 
 .cursor-custom {
   position: fixed;
@@ -42,7 +37,7 @@
 }
 
 .cursor-custom::before {
-  content: '🔒';
+  content: '\1F512';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -70,10 +65,6 @@
     box-shadow: 0 0 20px rgba(34, 211, 238, 0.6), inset 0 0 12px rgba(34, 211, 238, 0.3);
   }
 }
-
-/* ═══════════════════════════════════════════════════════════════ */
-/* ─── SECURITY ANIMATIONS ────────────────────────────────────── */
-/* ═══════════════════════════════════════════════════════════════ */
 
 @keyframes floatingSecurity {
   0%, 100% {
@@ -151,7 +142,6 @@
   animation: lockUnlock 2s ease-in-out infinite;
 }
 
-/* Custom range slider */
 input[type='range'] {
   -webkit-appearance: none;
   appearance: none;
@@ -196,7 +186,6 @@ input[type='range']::-moz-range-thumb {
   box-shadow: 0 0 8px rgba(124, 58, 237, 0.8);
 }
 
-/* Checkbox custom style */
 input[type='checkbox'] {
   accent-color: #7c3aed;
   width: 16px;
@@ -204,7 +193,6 @@ input[type='checkbox'] {
   cursor: pointer;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }

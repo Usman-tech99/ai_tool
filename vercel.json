@@ -4,13 +4,19 @@
     "NODE_ENV": "production"
   },
   "installCommand": "npm install --legacy-peer-deps",
+  "rewrites": [
+    {
+      "source": "/((?!api|dist|public|src|node_modules|logo.png|favicon.ico|robots.txt|sitemap.xml|assets/.*).*)",
+      "destination": "/index.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://k2mkucxia43oc7fa.public.blob.vercel-storage.com; connect-src 'self' https://*.vercel.com vercel.live https://*.blob.vercel-storage.com https://pagead2.googlesyndication.com; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://k2mkucxia43oc7fa.public.blob.vercel-storage.com; connect-src 'self' https://*.vercel.com vercel.live https://*.blob.vercel-storage.com https://pagead2.googlesyndication.com https://api.countapi.xyz https://www.google-analytics.com; img-src 'self' data: https: https://pagead2.googlesyndication.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
         },
         {
           "key": "X-Frame-Options",
@@ -22,7 +28,7 @@
         },
         {
           "key": "Referrer-Policy",
-          "value": "no-referrer"
+          "value": "strict-origin-when-cross-origin"
         },
         {
           "key": "Strict-Transport-Security",
