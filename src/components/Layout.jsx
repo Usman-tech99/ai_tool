@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Outlet, Link, useNavigate } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
+import { Analytics } from '@vercel/analytics/react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import SecurityCursor from './SecurityCursor'
@@ -31,6 +32,7 @@ const Layout = () => {
         ? 'bg-[#0a0a0f] text-white'
         : 'bg-white text-gray-900'
     }`}>
+      <Analytics />
       <SecurityCursor />
       <SecurityElements />
       <VisitorCounter />
