@@ -6,29 +6,34 @@ const VisitorCounter = () => {
   const [error, setError] = useState(false)
 
   useEffect(() => {
-    // Fetch visitor count from CountAPI (free service)
+    // Try local count first for instant display
+    const localCount = localStorage.getItem('visitorCount')
+    if (localCount) {
+      setVisitorCount(parseInt(localCount, 10))
+    }
+
     const fetchVisitorCount = async () => {
       try {
         setLoading(true)
-        // Using CountAPI - a free counter service
-        // Replace 'cyberaipulse' with your site identifier
         const response = await fetch('https://api.countapi.xyz/hit/cyberaipulse/visits')
         const data = await response.json()
-        
-        if (data.value) {
-          setVisitorCount(data.value)
+
+        if (data.value !== undefined && data.value !== null) {
+          const count = Number(data.value)
+          setVisitorCount(count)
+          localStorage.setItem('visitorCount', count.toString())
         }
-        setLoading(false)
       } catch (err) {
-        console.error('Error fetching visitor count:', err)
+        console.error('Visitor counter unavailable:', err)
         setError(true)
+
+        // Increment local counter as fallback
+        const prev = parseInt(localStorage.getItem('visitorCount') || '0', 10)
+        const next = prev + 1
+        setVisitorCount(next)
+        localStorage.setItem('visitorCount', next.toString())
+      } finally {
         setLoading(false)
-        
-        // Fallback: try to read from localStorage
-        const localCount = localStorage.getItem('visitorCount')
-        if (localCount) {
-          setVisitorCount(parseInt(localCount))
-        }
       }
     }
 
