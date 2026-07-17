@@ -36,16 +36,6 @@ const Privacy = () => {
           <h2 className={`text-2xl font-bold mt-8 mb-4 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             2. Information We Collect
           </h2>
-          <p className="leading-relaxed">
-            <strong className={isDark ? 'text-white' : 'text-gray-900'}>Optional Newsletter:</strong> If you subscribe to our security blog newsletter:
-          </p>
-          <ul className={`list-disc list-inside space-y-2 ml-4`}>
-            <li>We collect your email address for newsletter delivery</li>
-            <li>We use industry-standard email providers to manage subscriptions</li>
-            <li>You can unsubscribe at any time (link included in every email)</li>
-            <li>We do NOT share your email with third parties</li>
-          </ul>
-
           <p className="leading-relaxed mt-4">
             <strong className={isDark ? 'text-white' : 'text-gray-900'}>Automatic Technical Data:</strong> Like all websites, we automatically collect:
           </p>
@@ -140,7 +130,7 @@ const Privacy = () => {
             <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>Access:</strong> Request what personal data we hold about you</li>
             <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>Deletion:</strong> Request deletion of your data</li>
             <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>Portability:</strong> Receive your data in a portable format</li>
-            <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>Opt-Out:</strong> Unsubscribe from newsletters or opt out of personalized ads</li>
+            <li><strong className={isDark ? 'text-white' : 'text-gray-900'}>Opt-Out:</strong> Opt out of personalized ads via Google Ad Settings</li>
           </ul>
 
           <h2 className={`text-2xl font-bold mt-8 mb-4 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
@@ -157,7 +147,7 @@ const Privacy = () => {
             If you have questions about this Privacy Policy, contact us at:
           </p>
           <div className={`rounded-lg p-4 mt-4 transition-colors duration-300 ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-gray-50 border border-gray-300'}`}>
-            <p>Email: privacy@cyberaipulse.tech</p>
+            <p>Email: usmanshafiq887@gmail.com</p>
             <p className="mt-2">Response Time: We aim to respond to privacy requests within 30 days</p>
           </div>
         </div>

@@ -41,7 +41,7 @@ const Terms = () => {
           <p className="leading-relaxed">These Terms are governed by applicable laws. If any provision is invalid, the remaining provisions remain in effect.</p>
 
           <h2 className={`text-2xl font-bold mt-8 mb-4 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>9. Contact</h2>
-          <p className="leading-relaxed">For questions about these Terms: <a href="mailto:support@cyberaipulse.tech" className="text-cyan-600 hover:text-cyan-700 font-mono font-semibold">support@cyberaipulse.tech</a></p>
+          <p className="leading-relaxed">For questions about these Terms: <a href="mailto:usmanshafiq887@gmail.com" className="text-cyan-600 hover:text-cyan-700 font-mono font-semibold">usmanshafiq887@gmail.com</a></p>
 
           <div className={`rounded-lg p-4 mt-8 transition-colors duration-300 ${isDark ? 'bg-cyan-600/10 border border-cyan-500/30' : 'bg-cyan-50 border border-cyan-200'}`}>
             <p className={`font-semibold ${isDark ? 'text-cyan-300' : 'text-cyan-700'}`}>Last Updated: July 13, 2026</p>

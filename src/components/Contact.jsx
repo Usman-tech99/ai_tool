@@ -27,7 +27,7 @@ const Contact = () => {
     const emailBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)
 
     window.open(
-      `https://mail.google.com/mail/?view=cm&fs=1&to=support@cyberaipulse.tech&su=${subject}&body=${emailBody}`,
+      `https://mail.google.com/mail/?view=cm&fs=1&to=usmanshafiq887@gmail.com&su=${subject}&body=${emailBody}`,
       '_blank',
       'width=700,height=600'
     )
@@ -54,17 +54,17 @@ const Contact = () => {
             <div>
               <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-cyan-300' : 'text-cyan-700'}`}>Email Support</h3>
               <p className={`transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>For general inquiries and support:</p>
-              <a href="mailto:support@cyberaipulse.tech" className="text-cyan-600 hover:text-cyan-700 font-mono font-semibold">support@cyberaipulse.tech</a>
+              <a href="mailto:usmanshafiq887@gmail.com" className="text-cyan-600 hover:text-cyan-700 font-mono font-semibold">usmanshafiq887@gmail.com</a>
             </div>
             <div>
               <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-cyan-300' : 'text-cyan-700'}`}>Privacy Concerns</h3>
               <p className={`transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>Questions about data privacy or GDPR requests:</p>
-              <a href="mailto:privacy@cyberaipulse.tech" className="text-cyan-600 hover:text-cyan-700 font-mono font-semibold">privacy@cyberaipulse.tech</a>
+              <a href="mailto:usmanshafiq887@gmail.com" className="text-cyan-600 hover:text-cyan-700 font-mono font-semibold">usmanshafiq887@gmail.com</a>
             </div>
             <div>
               <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-cyan-300' : 'text-cyan-700'}`}>Legal and Terms</h3>
               <p className={`transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>Legal inquiries and terms questions:</p>
-              <a href="mailto:support@cyberaipulse.tech" className="text-cyan-600 hover:text-cyan-700 font-mono font-semibold">support@cyberaipulse.tech</a>
+              <a href="mailto:usmanshafiq887@gmail.com" className="text-cyan-600 hover:text-cyan-700 font-mono font-semibold">usmanshafiq887@gmail.com</a>
             </div>
             <div>
               <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-cyan-300' : 'text-cyan-700'}`}>Response Time</h3>
