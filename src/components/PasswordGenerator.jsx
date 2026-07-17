@@ -52,7 +52,16 @@ const PasswordGenerator = ({ isDark }) => {
 
   const handleCopy = async () => {
     if (!password) return
-    await navigator.clipboard.writeText(password)
+    try {
+      await navigator.clipboard.writeText(password)
+    } catch {
+      const ta = document.createElement('textarea')
+      ta.value = password
+      document.body.appendChild(ta)
+      ta.select()
+      document.execCommand('copy')
+      document.body.removeChild(ta)
+    }
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }

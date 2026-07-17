@@ -1,0 +1,4 @@
+Contact: mailto:security@cyberaipulse.tech
+Preferred-Languages: en
+Canonical: https://www.cyberaipulse.tech/.well-known/security.txt
+Policy: https://www.cyberaipulse.tech/security

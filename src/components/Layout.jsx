@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Outlet, Link, useNavigate } from 'react-router-dom'
+import { Outlet, Link, useLocation } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
 import { Analytics } from '@vercel/analytics/react'
 import AOS from 'aos'
@@ -11,7 +11,7 @@ import CookieConsent from './CookieConsent'
 
 const Layout = () => {
   const { isDark, toggleTheme } = useTheme()
-  const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
     AOS.init({

@@ -27,7 +27,7 @@ const Contact = () => {
     const emailBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)
 
     window.open(
-      `https://mail.google.com/mail/?view=cm&fs=1&to=shafiqusman339@gmail.com&su=${subject}&body=${emailBody}`,
+      `https://mail.google.com/mail/?view=cm&fs=1&to=support@cyberaipulse.tech&su=${subject}&body=${emailBody}`,
       '_blank',
       'width=700,height=600'
     )
@@ -64,7 +64,7 @@ const Contact = () => {
             <div>
               <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-cyan-300' : 'text-cyan-700'}`}>Legal and Terms</h3>
               <p className={`transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>Legal inquiries and terms questions:</p>
-              <a href="mailto:shafiqusman339@gmail.com" className="text-cyan-600 hover:text-cyan-700 font-mono font-semibold">shafiqusman339@gmail.com</a>
+              <a href="mailto:support@cyberaipulse.tech" className="text-cyan-600 hover:text-cyan-700 font-mono font-semibold">support@cyberaipulse.tech</a>
             </div>
             <div>
               <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-cyan-300' : 'text-cyan-700'}`}>Response Time</h3>
